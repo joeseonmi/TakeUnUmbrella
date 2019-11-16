@@ -1,0 +1,844 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		261CA9D2237ED21F00037D37 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261CA9D1237ED21F00037D37 /* WeatherAPI.swift */; };
+		261CA9D4237FE73000037D37 /* WeatherSearchComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261CA9D3237FE73000037D37 /* WeatherSearchComponents.swift */; };
+		261CA9D72380068900037D37 /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261CA9D62380068900037D37 /* ForecastCell.swift */; };
+		261CA9D923800D4100037D37 /* WeatherGrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261CA9D823800D4100037D37 /* WeatherGrib.swift */; };
+		26A519FB237E86180014478D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A519FA237E86180014478D /* AppDelegate.swift */; };
+		26A51A04237E861A0014478D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26A51A03237E861A0014478D /* Assets.xcassets */; };
+		26A51A12237E861A0014478D /* TakeUnUmbrellaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A51A11237E861A0014478D /* TakeUnUmbrellaTests.swift */; };
+		26A51A1D237E861A0014478D /* TakeUnUmbrellaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A51A1C237E861A0014478D /* TakeUnUmbrellaUITests.swift */; };
+		26A51A31237E86D30014478D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A51A30237E86D30014478D /* MainViewController.swift */; };
+		26A51A33237E86ED0014478D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A51A32237E86ED0014478D /* MainViewModel.swift */; };
+		26A51A35237E88240014478D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26A51A34237E88240014478D /* LaunchScreen.storyboard */; };
+		26A51A39237E8E1D0014478D /* TodayWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A51A38237E8E1D0014478D /* TodayWeatherViewController.swift */; };
+		26A51A3B237E8E290014478D /* TodayWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A51A3A237E8E290014478D /* TodayWeatherViewModel.swift */; };
+		26A51A3D237E8E310014478D /* TodayWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A51A3C237E8E310014478D /* TodayWeatherModel.swift */; };
+		26A51A3F237E8E480014478D /* WeatherNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A51A3E237E8E480014478D /* WeatherNetwork.swift */; };
+		26A51A41237E8E580014478D /* WeatherNetworkImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A51A40237E8E580014478D /* WeatherNetworkImpl.swift */; };
+		26A51A43237E91400014478D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A51A42237E91400014478D /* Constants.swift */; };
+		26A51A45237E96530014478D /* WeatherItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A51A44237E96530014478D /* WeatherItem.swift */; };
+		4B17AA719F418BDA702382D9 /* Pods_TakeUnUmbrellaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3315A2C92BEFA3E665675C9E /* Pods_TakeUnUmbrellaTests.framework */; };
+		B7D01E902DFD22BCA6BAF10E /* Pods_TakeUnUmbrella_TakeUnUmbrellaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDA5F4E4A1F3811DBE86C9A /* Pods_TakeUnUmbrella_TakeUnUmbrellaUITests.framework */; };
+		FD8127100366FE33744B04F7 /* Pods_TakeUnUmbrella.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D5A0A043C6DC8322BCE9028 /* Pods_TakeUnUmbrella.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		26A51A0E237E861A0014478D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26A519EF237E86180014478D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26A519F6237E86180014478D;
+			remoteInfo = TakeUnUmbrella;
+		};
+		26A51A19237E861A0014478D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26A519EF237E86180014478D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26A519F6237E86180014478D;
+			remoteInfo = TakeUnUmbrella;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05B9DDCF8417FC7A0889110E /* Pods-TakeUnUmbrellaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TakeUnUmbrellaTests.debug.xcconfig"; path = "Target Support Files/Pods-TakeUnUmbrellaTests/Pods-TakeUnUmbrellaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		261CA9D1237ED21F00037D37 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
+		261CA9D3237FE73000037D37 /* WeatherSearchComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchComponents.swift; sourceTree = "<group>"; };
+		261CA9D62380068900037D37 /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
+		261CA9D823800D4100037D37 /* WeatherGrib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherGrib.swift; sourceTree = "<group>"; };
+		26A519F7237E86180014478D /* TakeUnUmbrella.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeUnUmbrella.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		26A519FA237E86180014478D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
+		26A51A03237E861A0014478D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		26A51A08237E861A0014478D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26A51A0D237E861A0014478D /* TakeUnUmbrellaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TakeUnUmbrellaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		26A51A11237E861A0014478D /* TakeUnUmbrellaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeUnUmbrellaTests.swift; sourceTree = "<group>"; };
+		26A51A13237E861A0014478D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26A51A18237E861A0014478D /* TakeUnUmbrellaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TakeUnUmbrellaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		26A51A1C237E861A0014478D /* TakeUnUmbrellaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeUnUmbrellaUITests.swift; sourceTree = "<group>"; };
+		26A51A1E237E861A0014478D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26A51A30237E86D30014478D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		26A51A32237E86ED0014478D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		26A51A34237E88240014478D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		26A51A38237E8E1D0014478D /* TodayWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeatherViewController.swift; sourceTree = "<group>"; };
+		26A51A3A237E8E290014478D /* TodayWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeatherViewModel.swift; sourceTree = "<group>"; };
+		26A51A3C237E8E310014478D /* TodayWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeatherModel.swift; sourceTree = "<group>"; };
+		26A51A3E237E8E480014478D /* WeatherNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetwork.swift; sourceTree = "<group>"; };
+		26A51A40237E8E580014478D /* WeatherNetworkImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetworkImpl.swift; sourceTree = "<group>"; };
+		26A51A42237E91400014478D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		26A51A44237E96530014478D /* WeatherItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherItem.swift; sourceTree = "<group>"; };
+		3315A2C92BEFA3E665675C9E /* Pods_TakeUnUmbrellaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TakeUnUmbrellaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33B6591D66150B9B0C45D1CF /* Pods-TakeUnUmbrella-TakeUnUmbrellaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TakeUnUmbrella-TakeUnUmbrellaUITests.release.xcconfig"; path = "Target Support Files/Pods-TakeUnUmbrella-TakeUnUmbrellaUITests/Pods-TakeUnUmbrella-TakeUnUmbrellaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		49A60AC72C493BE948CCF026 /* Pods-TakeUnUmbrellaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TakeUnUmbrellaTests.release.xcconfig"; path = "Target Support Files/Pods-TakeUnUmbrellaTests/Pods-TakeUnUmbrellaTests.release.xcconfig"; sourceTree = "<group>"; };
+		7D5A0A043C6DC8322BCE9028 /* Pods_TakeUnUmbrella.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TakeUnUmbrella.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		853DA4AD265FC9D1E9C0AC12 /* Pods-TakeUnUmbrella.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TakeUnUmbrella.debug.xcconfig"; path = "Target Support Files/Pods-TakeUnUmbrella/Pods-TakeUnUmbrella.debug.xcconfig"; sourceTree = "<group>"; };
+		97DFCBD22E99199FF70E864E /* Pods-TakeUnUmbrella.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TakeUnUmbrella.release.xcconfig"; path = "Target Support Files/Pods-TakeUnUmbrella/Pods-TakeUnUmbrella.release.xcconfig"; sourceTree = "<group>"; };
+		DDDA5F4E4A1F3811DBE86C9A /* Pods_TakeUnUmbrella_TakeUnUmbrellaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TakeUnUmbrella_TakeUnUmbrellaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA9907408C8245389B6AB613 /* Pods-TakeUnUmbrella-TakeUnUmbrellaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TakeUnUmbrella-TakeUnUmbrellaUITests.debug.xcconfig"; path = "Target Support Files/Pods-TakeUnUmbrella-TakeUnUmbrellaUITests/Pods-TakeUnUmbrella-TakeUnUmbrellaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		26A519F4237E86180014478D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD8127100366FE33744B04F7 /* Pods_TakeUnUmbrella.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26A51A0A237E861A0014478D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B17AA719F418BDA702382D9 /* Pods_TakeUnUmbrellaTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26A51A15237E861A0014478D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7D01E902DFD22BCA6BAF10E /* Pods_TakeUnUmbrella_TakeUnUmbrellaUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		261CA9D52380066C00037D37 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				261CA9D62380068900037D37 /* ForecastCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		26A519EE237E86180014478D = {
+			isa = PBXGroup;
+			children = (
+				26A519F9237E86180014478D /* TakeUnUmbrella */,
+				26A51A10237E861A0014478D /* TakeUnUmbrellaTests */,
+				26A51A1B237E861A0014478D /* TakeUnUmbrellaUITests */,
+				26A519F8237E86180014478D /* Products */,
+				B3E23B15746679E97C487D82 /* Pods */,
+				B90060ADF693099E4446BF93 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		26A519F8237E86180014478D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				26A519F7237E86180014478D /* TakeUnUmbrella.app */,
+				26A51A0D237E861A0014478D /* TakeUnUmbrellaTests.xctest */,
+				26A51A18237E861A0014478D /* TakeUnUmbrellaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		26A519F9237E86180014478D /* TakeUnUmbrella */ = {
+			isa = PBXGroup;
+			children = (
+				26A51A08237E861A0014478D /* Info.plist */,
+				26A51A2A237E86510014478D /* Resources */,
+				26A51A2B237E865C0014478D /* Sources */,
+			);
+			path = TakeUnUmbrella;
+			sourceTree = "<group>";
+		};
+		26A51A10237E861A0014478D /* TakeUnUmbrellaTests */ = {
+			isa = PBXGroup;
+			children = (
+				26A51A11237E861A0014478D /* TakeUnUmbrellaTests.swift */,
+				26A51A13237E861A0014478D /* Info.plist */,
+			);
+			path = TakeUnUmbrellaTests;
+			sourceTree = "<group>";
+		};
+		26A51A1B237E861A0014478D /* TakeUnUmbrellaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				26A51A1C237E861A0014478D /* TakeUnUmbrellaUITests.swift */,
+				26A51A1E237E861A0014478D /* Info.plist */,
+			);
+			path = TakeUnUmbrellaUITests;
+			sourceTree = "<group>";
+		};
+		26A51A2A237E86510014478D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				26A51A03237E861A0014478D /* Assets.xcassets */,
+				26A51A34237E88240014478D /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		26A51A2B237E865C0014478D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				26A519FA237E86180014478D /* AppDelegate.swift */,
+				26A51A2C237E86850014478D /* Network */,
+				26A51A2D237E868C0014478D /* Entity */,
+				26A51A2F237E86AB0014478D /* Constants */,
+				26A51A2E237E869C0014478D /* Presentation */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		26A51A2C237E86850014478D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				261CA9D1237ED21F00037D37 /* WeatherAPI.swift */,
+				26A51A3E237E8E480014478D /* WeatherNetwork.swift */,
+				26A51A40237E8E580014478D /* WeatherNetworkImpl.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		26A51A2D237E868C0014478D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				261CA9D3237FE73000037D37 /* WeatherSearchComponents.swift */,
+				26A51A44237E96530014478D /* WeatherItem.swift */,
+				261CA9D823800D4100037D37 /* WeatherGrib.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		26A51A2E237E869C0014478D /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				26A51A30237E86D30014478D /* MainViewController.swift */,
+				26A51A32237E86ED0014478D /* MainViewModel.swift */,
+				26A51A36237E8BF80014478D /* Today Weather */,
+				26A51A37237E8C110014478D /* Other Place Weather */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		26A51A2F237E86AB0014478D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				26A51A42237E91400014478D /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		26A51A36237E8BF80014478D /* Today Weather */ = {
+			isa = PBXGroup;
+			children = (
+				26A51A38237E8E1D0014478D /* TodayWeatherViewController.swift */,
+				26A51A3A237E8E290014478D /* TodayWeatherViewModel.swift */,
+				26A51A3C237E8E310014478D /* TodayWeatherModel.swift */,
+				261CA9D52380066C00037D37 /* Components */,
+			);
+			path = "Today Weather";
+			sourceTree = "<group>";
+		};
+		26A51A37237E8C110014478D /* Other Place Weather */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Other Place Weather";
+			sourceTree = "<group>";
+		};
+		B3E23B15746679E97C487D82 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				853DA4AD265FC9D1E9C0AC12 /* Pods-TakeUnUmbrella.debug.xcconfig */,
+				97DFCBD22E99199FF70E864E /* Pods-TakeUnUmbrella.release.xcconfig */,
+				FA9907408C8245389B6AB613 /* Pods-TakeUnUmbrella-TakeUnUmbrellaUITests.debug.xcconfig */,
+				33B6591D66150B9B0C45D1CF /* Pods-TakeUnUmbrella-TakeUnUmbrellaUITests.release.xcconfig */,
+				05B9DDCF8417FC7A0889110E /* Pods-TakeUnUmbrellaTests.debug.xcconfig */,
+				49A60AC72C493BE948CCF026 /* Pods-TakeUnUmbrellaTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B90060ADF693099E4446BF93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D5A0A043C6DC8322BCE9028 /* Pods_TakeUnUmbrella.framework */,
+				DDDA5F4E4A1F3811DBE86C9A /* Pods_TakeUnUmbrella_TakeUnUmbrellaUITests.framework */,
+				3315A2C92BEFA3E665675C9E /* Pods_TakeUnUmbrellaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		26A519F6237E86180014478D /* TakeUnUmbrella */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26A51A21237E861A0014478D /* Build configuration list for PBXNativeTarget "TakeUnUmbrella" */;
+			buildPhases = (
+				D3B713DFC134A99C058D13E1 /* [CP] Check Pods Manifest.lock */,
+				26A519F3237E86180014478D /* Sources */,
+				26A519F4237E86180014478D /* Frameworks */,
+				26A519F5237E86180014478D /* Resources */,
+				FB00663E624797418436CC10 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TakeUnUmbrella;
+			productName = TakeUnUmbrella;
+			productReference = 26A519F7237E86180014478D /* TakeUnUmbrella.app */;
+			productType = "com.apple.product-type.application";
+		};
+		26A51A0C237E861A0014478D /* TakeUnUmbrellaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26A51A24237E861A0014478D /* Build configuration list for PBXNativeTarget "TakeUnUmbrellaTests" */;
+			buildPhases = (
+				1C81E1746110932BA4B2BA24 /* [CP] Check Pods Manifest.lock */,
+				26A51A09237E861A0014478D /* Sources */,
+				26A51A0A237E861A0014478D /* Frameworks */,
+				26A51A0B237E861A0014478D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				26A51A0F237E861A0014478D /* PBXTargetDependency */,
+			);
+			name = TakeUnUmbrellaTests;
+			productName = TakeUnUmbrellaTests;
+			productReference = 26A51A0D237E861A0014478D /* TakeUnUmbrellaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		26A51A17237E861A0014478D /* TakeUnUmbrellaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26A51A27237E861A0014478D /* Build configuration list for PBXNativeTarget "TakeUnUmbrellaUITests" */;
+			buildPhases = (
+				68FF32157E4FA01D97F9294E /* [CP] Check Pods Manifest.lock */,
+				26A51A14237E861A0014478D /* Sources */,
+				26A51A15237E861A0014478D /* Frameworks */,
+				26A51A16237E861A0014478D /* Resources */,
+				2EEA9F54967F1CD482C6C109 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				26A51A1A237E861A0014478D /* PBXTargetDependency */,
+			);
+			name = TakeUnUmbrellaUITests;
+			productName = TakeUnUmbrellaUITests;
+			productReference = 26A51A18237E861A0014478D /* TakeUnUmbrellaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		26A519EF237E86180014478D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "조선미";
+				TargetAttributes = {
+					26A519F6237E86180014478D = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					26A51A0C237E861A0014478D = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 26A519F6237E86180014478D;
+					};
+					26A51A17237E861A0014478D = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 26A519F6237E86180014478D;
+					};
+				};
+			};
+			buildConfigurationList = 26A519F2237E86180014478D /* Build configuration list for PBXProject "TakeUnUmbrella" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 26A519EE237E86180014478D;
+			productRefGroup = 26A519F8237E86180014478D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				26A519F6237E86180014478D /* TakeUnUmbrella */,
+				26A51A0C237E861A0014478D /* TakeUnUmbrellaTests */,
+				26A51A17237E861A0014478D /* TakeUnUmbrellaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		26A519F5237E86180014478D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26A51A04237E861A0014478D /* Assets.xcassets in Resources */,
+				26A51A35237E88240014478D /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26A51A0B237E861A0014478D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26A51A16237E861A0014478D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C81E1746110932BA4B2BA24 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TakeUnUmbrellaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2EEA9F54967F1CD482C6C109 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TakeUnUmbrella-TakeUnUmbrellaUITests/Pods-TakeUnUmbrella-TakeUnUmbrellaUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TakeUnUmbrella-TakeUnUmbrellaUITests/Pods-TakeUnUmbrella-TakeUnUmbrellaUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TakeUnUmbrella-TakeUnUmbrellaUITests/Pods-TakeUnUmbrella-TakeUnUmbrellaUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68FF32157E4FA01D97F9294E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TakeUnUmbrella-TakeUnUmbrellaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3B713DFC134A99C058D13E1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TakeUnUmbrella-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB00663E624797418436CC10 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TakeUnUmbrella/Pods-TakeUnUmbrella-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TakeUnUmbrella/Pods-TakeUnUmbrella-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TakeUnUmbrella/Pods-TakeUnUmbrella-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		26A519F3237E86180014478D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				261CA9D4237FE73000037D37 /* WeatherSearchComponents.swift in Sources */,
+				261CA9D2237ED21F00037D37 /* WeatherAPI.swift in Sources */,
+				26A519FB237E86180014478D /* AppDelegate.swift in Sources */,
+				26A51A31237E86D30014478D /* MainViewController.swift in Sources */,
+				26A51A3D237E8E310014478D /* TodayWeatherModel.swift in Sources */,
+				26A51A3F237E8E480014478D /* WeatherNetwork.swift in Sources */,
+				26A51A3B237E8E290014478D /* TodayWeatherViewModel.swift in Sources */,
+				26A51A39237E8E1D0014478D /* TodayWeatherViewController.swift in Sources */,
+				261CA9D923800D4100037D37 /* WeatherGrib.swift in Sources */,
+				26A51A33237E86ED0014478D /* MainViewModel.swift in Sources */,
+				26A51A45237E96530014478D /* WeatherItem.swift in Sources */,
+				26A51A41237E8E580014478D /* WeatherNetworkImpl.swift in Sources */,
+				261CA9D72380068900037D37 /* ForecastCell.swift in Sources */,
+				26A51A43237E91400014478D /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26A51A09237E861A0014478D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26A51A12237E861A0014478D /* TakeUnUmbrellaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26A51A14237E861A0014478D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26A51A1D237E861A0014478D /* TakeUnUmbrellaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		26A51A0F237E861A0014478D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26A519F6237E86180014478D /* TakeUnUmbrella */;
+			targetProxy = 26A51A0E237E861A0014478D /* PBXContainerItemProxy */;
+		};
+		26A51A1A237E861A0014478D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26A519F6237E86180014478D /* TakeUnUmbrella */;
+			targetProxy = 26A51A19237E861A0014478D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		26A51A1F237E861A0014478D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		26A51A20237E861A0014478D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		26A51A22237E861A0014478D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 853DA4AD265FC9D1E9C0AC12 /* Pods-TakeUnUmbrella.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H3R65PNVV;
+				INFOPLIST_FILE = TakeUnUmbrella/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = delta.TakeUnUmbrella;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		26A51A23237E861A0014478D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97DFCBD22E99199FF70E864E /* Pods-TakeUnUmbrella.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H3R65PNVV;
+				INFOPLIST_FILE = TakeUnUmbrella/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = delta.TakeUnUmbrella;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		26A51A25237E861A0014478D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05B9DDCF8417FC7A0889110E /* Pods-TakeUnUmbrellaTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H3R65PNVV;
+				INFOPLIST_FILE = TakeUnUmbrellaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = delta.TakeUnUmbrellaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TakeUnUmbrella.app/TakeUnUmbrella";
+			};
+			name = Debug;
+		};
+		26A51A26237E861A0014478D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49A60AC72C493BE948CCF026 /* Pods-TakeUnUmbrellaTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H3R65PNVV;
+				INFOPLIST_FILE = TakeUnUmbrellaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = delta.TakeUnUmbrellaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TakeUnUmbrella.app/TakeUnUmbrella";
+			};
+			name = Release;
+		};
+		26A51A28237E861A0014478D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA9907408C8245389B6AB613 /* Pods-TakeUnUmbrella-TakeUnUmbrellaUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H3R65PNVV;
+				INFOPLIST_FILE = TakeUnUmbrellaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = delta.TakeUnUmbrellaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TakeUnUmbrella;
+			};
+			name = Debug;
+		};
+		26A51A29237E861A0014478D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33B6591D66150B9B0C45D1CF /* Pods-TakeUnUmbrella-TakeUnUmbrellaUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H3R65PNVV;
+				INFOPLIST_FILE = TakeUnUmbrellaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = delta.TakeUnUmbrellaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TakeUnUmbrella;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		26A519F2237E86180014478D /* Build configuration list for PBXProject "TakeUnUmbrella" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26A51A1F237E861A0014478D /* Debug */,
+				26A51A20237E861A0014478D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26A51A21237E861A0014478D /* Build configuration list for PBXNativeTarget "TakeUnUmbrella" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26A51A22237E861A0014478D /* Debug */,
+				26A51A23237E861A0014478D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26A51A24237E861A0014478D /* Build configuration list for PBXNativeTarget "TakeUnUmbrellaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26A51A25237E861A0014478D /* Debug */,
+				26A51A26237E861A0014478D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26A51A27237E861A0014478D /* Build configuration list for PBXNativeTarget "TakeUnUmbrellaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26A51A28237E861A0014478D /* Debug */,
+				26A51A29237E861A0014478D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 26A519EF237E86180014478D /* Project object */;
+}
