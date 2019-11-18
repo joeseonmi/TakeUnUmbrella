@@ -45,8 +45,8 @@ extension WeatherAPI: TargetType {
         case .getCurrentWeather:
             var parameter = [String: String]()
             parameter["ServiceKey"] = AppConstants.AppKey.appKey.removingPercentEncoding!
-            parameter["base_date"] = "20191116"
-            parameter["base_time"] = "2000"
+            parameter["base_date"] = "20191118"
+            parameter["base_time"] = "1600"
             parameter["nx"] = "60"
             parameter["ny"] = "120"
             parameter["_type"] = "json"

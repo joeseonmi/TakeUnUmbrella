@@ -20,4 +20,5 @@ struct TodayWeatherModel {
     func getCurrentWeather() -> Single<Result<GribFcstResponse, WeatherNetworkError>> {
         return weatherNetwork.getCurrentWeather()
     }
+    
 }

@@ -12,10 +12,13 @@ import RxCocoa
 import RxOptional
 
 struct TodayWeatherViewModel: TodayWeatherViewBindable {
+    
     let disposeBag = DisposeBag()
     
     var viewWillAppear = PublishSubject<Void>()
-    
+    var tappedNext = PublishRelay<Void>()
+    var currentWeatherData: Driver<[GribItem]>
+    var push: Driver<UIViewController>
     
     init(model: TodayWeatherModel = TodayWeatherModel()) {
       
@@ -25,17 +28,14 @@ struct TodayWeatherViewModel: TodayWeatherViewBindable {
             .share()
        
         let weatherValue = weatherListResult
-            .map { result -> GribFcstResponse? in
+            .map { result -> [GribItem]? in
                 guard case .success(let value) = result else {
                     return nil
                 }
-                return value
+                return value.response.body.items.item
         }
         .filterNil()
-        .subscribe(onNext: { data in
-            print(data)
-        })
-        
+
         let weatherError = weatherListResult
             .map { result -> String? in
                 guard case .failure(let error) = result else {
@@ -44,6 +44,19 @@ struct TodayWeatherViewModel: TodayWeatherViewBindable {
                 return error.message
         }
         .filterNil()
-
+        
+        currentWeatherData = weatherValue
+            .asDriver(onErrorDriveWith: .empty())
+        
+        self.push = tappedNext
+            .map { _ in
+                let nextViewCon = UIViewController()
+                nextViewCon.title = "다음 뷰 컨트롤러에염!"
+                nextViewCon.view.backgroundColor = .white
+                nextViewCon.modalPresentationStyle = .fullScreen
+                return nextViewCon
+            }
+            .asDriver(onErrorDriveWith: .empty())
+       
     }
 }
