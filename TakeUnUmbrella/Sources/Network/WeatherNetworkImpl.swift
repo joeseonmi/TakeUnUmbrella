@@ -24,5 +24,16 @@ class WeatherNetworkImpl: WeatherNetwork {
         }
         .map { .success($0) }
     }
+
+    func getForecast() -> Single<WeatherResult<WeatherFcstResponse>> {
+        return provider.rx.request(
+            .getForecast
+        )
+            .filterSuccessfulStatusCodes()
+            .map { res in
+                try JSONDecoder().decode(WeatherFcstResponse.self, from: res.data)
+        }
+        .map { .success($0) }
+    }
 }
 

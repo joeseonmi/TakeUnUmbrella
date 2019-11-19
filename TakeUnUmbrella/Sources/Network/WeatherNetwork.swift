@@ -28,4 +28,5 @@ protocol WeatherNetwork {
     typealias WeatherResult<T> = Result<T, WeatherNetworkError>
     
     func getCurrentWeather() -> Single<WeatherResult<GribFcstResponse>>
+    func getForecast() -> Single<WeatherResult<WeatherFcstResponse>>
 }

@@ -21,4 +21,13 @@ struct TodayWeatherModel {
         return weatherNetwork.getCurrentWeather()
     }
     
+    func getForecast() -> Single<Result<WeatherFcstResponse, WeatherNetworkError>> {
+        return weatherNetwork.getForecast()
+    }
+    
+    func parsForecastData(value: [WeatherItem]) -> [Int: [WeatherItem]] {
+        let parsDictionary = Dictionary.init(grouping: value, by: { $0.fcstDate } )
+        return parsDictionary
+    }
+    
 }

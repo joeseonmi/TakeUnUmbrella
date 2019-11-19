@@ -11,9 +11,9 @@ import RxSwift
 import Moya
 
 enum WeatherAPI {
-    case getCurrentWeather(lat: String, lon: String)
-    case getDangiFcst
-    case getForecast
+    case getCurrentWeather(lat: String, lon: String) //실황정보 조회
+    case getDangiFcst                                //초단기예보
+    case getForecast                                 //특징지역의 예보
 }
 
 extension WeatherAPI: TargetType {
@@ -26,7 +26,7 @@ extension WeatherAPI: TargetType {
         case .getCurrentWeather:
             return "/ForecastGrib"
         case .getDangiFcst:
-            return "/getForecastTimeData"
+            return "/ForecastTimeData"
         case .getForecast:
             return "/ForecastSpaceData"
         }
@@ -45,22 +45,24 @@ extension WeatherAPI: TargetType {
         case .getCurrentWeather:
             var parameter = [String: String]()
             parameter["ServiceKey"] = AppConstants.AppKey.appKey.removingPercentEncoding!
-            parameter["base_date"] = "20191118"
-            parameter["base_time"] = "1600"
+            parameter["base_date"] = "20191119"
+            parameter["base_time"] = "1630"
             parameter["nx"] = "60"
             parameter["ny"] = "120"
             parameter["_type"] = "json"
+            parameter["numOfRows"] = "999"
             return .requestParameters(parameters: parameter, encoding: URLEncoding.queryString)
         case .getDangiFcst:
             return .requestPlain
         case .getForecast:
             var parameter = [String: String]()
             parameter["ServiceKey"] = AppConstants.AppKey.appKey.removingPercentEncoding!
-            parameter["base_date"] = "20191116"
-            parameter["base_time"] = "2200"
+            parameter["base_date"] = "20191119"
+            parameter["base_time"] = "1830"
             parameter["nx"] = "60"
             parameter["ny"] = "120"
             parameter["_type"] = "json"
+            parameter["numOfRows"] = "999"
             return .requestParameters(parameters: parameter, encoding: URLEncoding.queryString)
         }
     }
