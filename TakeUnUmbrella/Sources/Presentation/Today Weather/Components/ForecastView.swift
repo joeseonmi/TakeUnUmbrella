@@ -13,11 +13,12 @@ class ForecastView: UIView {
     private var forecastBG = UIView()
     private var value = UILabel()
     private var category = UILabel()
+    private var sun = UIView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        attribute()
         layout()
+        attribute()
     }
     
     required init?(coder: NSCoder) {
@@ -34,31 +35,39 @@ class ForecastView: UIView {
         category.textColor = .darkGray
         forecastBG.backgroundColor = .lightGray
         forecastBG.layer.cornerRadius = 16
+        sun.backgroundColor = .yellow
     }
     
     private func layout() {
         addSubview(forecastBG)
-        addSubview(value)
-        addSubview(category)
-        
+        addSubview(sun)
+        forecastBG.addSubview(value)
+        forecastBG.addSubview(category)
+    
         forecastBG.snp.makeConstraints {
+            $0.top.equalTo(sun.snp.centerY)
             $0.bottom.equalToSuperview()
-            $0.left.right.equalToSuperview()
-            $0.height.equalTo(forecastBG.snp.width)
-            
+            $0.width.equalToSuperview()
+            $0.left.equalToSuperview()
+        }
+        
+        sun.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(24)
+            $0.width.height.equalTo(forecastBG.snp.width).multipliedBy(0.6)
+            $0.centerX.equalTo(forecastBG.snp.centerX)
         }
         
         value.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(16)
+            $0.top.equalTo(sun.snp.bottom).offset(24)
             $0.left.equalToSuperview().offset(8)
             $0.right.equalToSuperview().offset(-8)
         }
         
         category.snp.makeConstraints {
-            $0.top.equalTo(value).offset(16)
+            $0.top.equalTo(value.snp.bottom).offset(16)
             $0.left.equalToSuperview().offset(8)
             $0.right.equalToSuperview().offset(-8)
-            $0.bottom.equalToSuperview().offset(-16)
+            $0.bottom.equalToSuperview().offset(-24)
         }
     }
 

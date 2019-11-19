@@ -123,7 +123,7 @@ class TodayWeatherViewController: UIViewController, UICollectionViewDelegateFlow
         
         stackView.axis = .horizontal
         stackView.spacing = 8
-        stackView.alignment = .center
+        stackView.backgroundColor = .black
         
     }
     
@@ -147,10 +147,10 @@ class TodayWeatherViewController: UIViewController, UICollectionViewDelegateFlow
         }
         
         scrollView.snp.makeConstraints {
-            $0.bottom.equalToSuperview().offset(-200)
+            $0.bottom.equalToSuperview().offset(-100)
             $0.left.equalToSuperview().offset(16)
             $0.right.equalToSuperview().offset(-16)
-            $0.height.equalTo(100)
+            $0.height.equalTo(200)
         }
         
         stackView.snp.makeConstraints {
