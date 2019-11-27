@@ -115,10 +115,13 @@ class TodayWeatherViewController: UIViewController, UICollectionViewDelegateFlow
 //            })
 //            .disposed(by: disposeBag)
         
-        viewModel.currentWeatherData.drive(onNext: { items in
-            print("현재 날씨: ", items)
+        viewModel.currentWeatherData.drive(onNext: { [weak self] items in
+            guard let current = items.first else { return }
+            self?.currentWeatherView.configure(data: current)
+            self?.animationView.configure(data: current)
             })
             .disposed(by: disposeBag)
+        
         location.requestWhenInUseAuthorization()
         location.startUpdatingLocation()
         location.rx
@@ -145,6 +148,7 @@ class TodayWeatherViewController: UIViewController, UICollectionViewDelegateFlow
         stackView.backgroundColor = .black
         stackView.distribution = .fillEqually
         locationNameLabel.text = "서울시 금천구"
+        locationNameLabel.textAlignment = .right
         locationNameLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
     }
     
@@ -158,20 +162,20 @@ class TodayWeatherViewController: UIViewController, UICollectionViewDelegateFlow
         
         menu.snp.makeConstraints {
             $0.width.height.equalTo(45)
-            $0.top.equalToSuperview().offset(24)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(8)
             $0.left.equalToSuperview().offset(8)
         }
         
         locationNameLabel.snp.makeConstraints {
-            $0.top.equalTo(menu.snp.bottom).offset(8)
-            $0.left.equalToSuperview().offset(16)
+            $0.left.equalTo(menu.snp.right).offset(16)
             $0.right.equalToSuperview().offset(-16)
             $0.height.equalTo(16)
+            $0.centerY.equalTo(menu)
         }
         
         animationView.snp.makeConstraints {
-            $0.top.equalTo(locationNameLabel.snp.bottom).offset(16)
-            $0.bottom.equalTo(currentWeatherView.snp.top).offset(-16)
+            $0.top.equalTo(locationNameLabel.snp.bottom).offset(32)
+            $0.bottom.equalTo(currentWeatherView.snp.top).offset(-32)
             $0.left.right.equalToSuperview()
         }
         
@@ -179,11 +183,11 @@ class TodayWeatherViewController: UIViewController, UICollectionViewDelegateFlow
             $0.left.equalToSuperview().offset(16)
             $0.right.equalToSuperview().offset(-16)
             $0.height.equalTo(100)
-            $0.bottom.equalTo(scrollView.snp.top).offset(-48)
+            $0.bottom.equalTo(scrollView.snp.top).offset(-32)
         }
 
         scrollView.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             $0.left.equalToSuperview()
             $0.right.equalToSuperview()
             $0.height.equalTo(225)

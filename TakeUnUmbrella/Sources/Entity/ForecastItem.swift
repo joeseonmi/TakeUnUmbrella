@@ -15,6 +15,7 @@ struct ForecastItem {
     var temperature: String
     var rainfallPercent: String
     var humi: String
+    var wind: String
     var sky: String
     var skyRain: String
     

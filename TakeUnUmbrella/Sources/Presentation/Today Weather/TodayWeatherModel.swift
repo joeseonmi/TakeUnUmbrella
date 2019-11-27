@@ -43,6 +43,7 @@ struct TodayWeatherModel {
                                           temperature: "",
                                           rainfallPercent: "",
                                           humi: "",
+                                          wind: "",
                                           sky: "",
                                           skyRain: "")
             keys.forEach { key in
@@ -78,6 +79,7 @@ struct TodayWeatherModel {
                                               temperature: "",
                                               rainfallPercent: "",
                                               humi: "",
+                                              wind: "",
                                               sky: "",
                                               skyRain: "")
                 keys.forEach { key in
@@ -91,6 +93,7 @@ struct TodayWeatherModel {
                         case .rainfallAnHour:    resultItem.rainfallPercent = "\(item.fcstValue)"
                         case .sky:               resultItem.sky = "\(item.fcstValue)"
                         case .Humidity:          resultItem.humi = "\(item.fcstValue)"
+                        case .windSpeed:         resultItem.wind = "\(item.fcstValue)"
                         default: break
                         }
                     }

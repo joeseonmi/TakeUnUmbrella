@@ -47,5 +47,9 @@ extension String {
         guard let double = Double(self) else { return "" }
         return "\(Int(double))"
     }
+    func doubleRoundedToInt() -> String {
+        guard let double = Double(self) else { return "" }
+        return "\(Int(double.rounded()))"
+    }
 }
 

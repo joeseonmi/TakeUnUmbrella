@@ -19,6 +19,7 @@ class CurrentWeatherView: UIView {
     private var rainTitleLabel = UILabel().caption
     private var rehTItleLabel = UILabel().caption
     private var windTitleLabel = UILabel().caption
+    private var windForceLabel = UILabel().caption
     private var rainLabel = UILabel().number03
     private var rehLabel = UILabel().number03
     private var windLabel = UILabel().number03
@@ -33,16 +34,36 @@ class CurrentWeatherView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configure(data: ForecastItem) {
+        tempLabel.text = "\(data.temperature.doubleRoundedToInt())"
+        rainLabel.text = "\(data.rainfallPercent.doubleToInt())"
+        rehLabel.text = "\(data.humi.doubleToInt())"
+        windLabel.text = "\(data.wind.doubleToInt())"
+        windForceLabel.text = wind(value: data.wind.doubleToInt())
+    }
+    
+    private func wind(value: String) -> String {
+        guard let intValue = Int(value) else { return "" }
+        if intValue < 4 {
+            return "약함"
+        } else if intValue >= 4 && intValue < 9 {
+            return "약간 강함"
+        } else if intValue >= 9 && intValue < 14 {
+            return "강함"
+        } else {
+            return "매우 강함"
+        }
+    }
+    
     private func attribute() {
         rainTitleLabel.text = "강수량(mm)"
         rehTItleLabel.text = "습도(%)"
         windTitleLabel.text = "바람(m/s)"
-        rainLabel.text = "16"
-        rehLabel.text = "16"
-        windLabel.text = "16"
         rainTitleLabel.textAlignment = .center
         rehTItleLabel.textAlignment = .center
         windTitleLabel.textAlignment = .center
+        windForceLabel.textColor = AppAttribute.AppColor.lightBlueGray
+        windForceLabel.textAlignment = .center
         rainLabel.textAlignment = .center
         rehLabel.textAlignment = .center
         windLabel.textAlignment = .center
@@ -54,7 +75,6 @@ class CurrentWeatherView: UIView {
         maxminLabel.text = "-1 / 15"
         maxminLabel.textAlignment = .center
         tempLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        tempLabel.text = "15"
         tempLabel.textAlignment = .center
     }
     private func layout() {
@@ -71,6 +91,7 @@ class CurrentWeatherView: UIView {
         rehView.addSubview(rehTItleLabel)
         rehView.addSubview(rehLabel)
         windView.addSubview(windTitleLabel)
+        windView.addSubview(windForceLabel)
         windView.addSubview(windLabel)
         stackView.addArrangedSubview(rainView)
         stackView.addArrangedSubview(rehView)
@@ -89,7 +110,7 @@ class CurrentWeatherView: UIView {
             $0.right.equalToSuperview().offset(-8)
         }
         maxminLabel.snp.makeConstraints {
-            $0.top.equalTo(tempLabel.snp.bottom).offset(-6)
+            $0.top.equalTo(tempLabel.snp.bottom).offset(-4)
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-16)
         }
@@ -105,8 +126,23 @@ class CurrentWeatherView: UIView {
         }
         
         //높이가 100이라고침
+        windTitleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.left.right.equalToSuperview()
+        }
+        
+        windForceLabel.snp.makeConstraints {
+            $0.top.equalTo(windLabel.snp.bottom).offset(-2)
+            $0.bottom.equalToSuperview()
+            $0.left.right.equalToSuperview()
+        }
+        
+        windLabel.snp.makeConstraints {
+            $0.top.equalTo(windTitleLabel.snp.bottom).offset(8)
+            $0.left.right.equalToSuperview()
+        }
         rainTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(8)
+            $0.top.equalTo(windTitleLabel)
             $0.left.right.equalToSuperview()
         }
         rainLabel.snp.makeConstraints {
@@ -115,7 +151,7 @@ class CurrentWeatherView: UIView {
             $0.left.right.equalToSuperview()
         }
         rehTItleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(8)
+            $0.top.equalTo(windTitleLabel)
             $0.left.right.equalToSuperview()
         }
         rehLabel.snp.makeConstraints {
@@ -123,16 +159,5 @@ class CurrentWeatherView: UIView {
             $0.bottom.equalToSuperview()
             $0.left.right.equalToSuperview()
         }
-        windTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(8)
-            $0.left.right.equalToSuperview()
-        }
-        windLabel.snp.makeConstraints {
-            $0.top.equalTo(windTitleLabel.snp.bottom).offset(8)
-            $0.bottom.equalToSuperview()
-            $0.left.right.equalToSuperview()
-        }
-        
     }
-
 }

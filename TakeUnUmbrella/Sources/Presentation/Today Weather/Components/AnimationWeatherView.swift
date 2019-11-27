@@ -10,9 +10,9 @@ import UIKit
 
 class AnimationWeatherView: UIView {
     
-    var skyBG = UIImageView()
-    var animal = UIImageView()
-    var skyIcon = UIImageView()
+    private var skyBG = UIImageView()
+    private var animal = UIImageView()
+    private var skyIcon = UIImageView()
     
     
     override init(frame: CGRect) {
@@ -25,7 +25,14 @@ class AnimationWeatherView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func attribute() {
+    func configure(data: ForecastItem) {
+        guard let time = Int(data.forecastTime) else { return }
+        let isDay = (time > 600) && (time < 2000)
+        skyBG.image = isDay ? #imageLiteral(resourceName: "DayBG") : #imageLiteral(resourceName: "NightBG")
+        skyIcon.image = data.weatherIcon()
+    }
+    
+    private func attribute() {
         skyBG.image = #imageLiteral(resourceName: "NightBG")
         skyIcon.image = #imageLiteral(resourceName: "LessCloudySun")
         skyIcon.contentMode = .scaleAspectFit
@@ -33,7 +40,7 @@ class AnimationWeatherView: UIView {
         animal.image = #imageLiteral(resourceName: "Dog")
         animal.contentMode = .scaleAspectFit
     }
-    func layout() {
+    private func layout() {
         addSubview(skyBG)
         addSubview(skyIcon)
         addSubview(animal)
@@ -51,7 +58,7 @@ class AnimationWeatherView: UIView {
         }
         
         animal.snp.makeConstraints {
-            $0.width.height.equalTo(skyBG.snp.height).multipliedBy(1.15)
+            $0.width.height.equalTo(skyBG.snp.height).multipliedBy(1.1)
             $0.right.equalTo(skyBG.snp.centerX).multipliedBy(1.5)
             $0.top.equalTo(skyBG.snp.centerY).multipliedBy(0.3)
         }

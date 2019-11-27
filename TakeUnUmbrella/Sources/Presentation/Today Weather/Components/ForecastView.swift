@@ -77,7 +77,7 @@ class ForecastView: UIView {
         }
         
         weatherIcon.snp.makeConstraints {
-            $0.top.equalTo(underLine.snp.bottom).offset(12)
+            $0.top.equalTo(underLine.snp.bottom).offset(6)
             $0.width.height.equalTo(60)
             $0.centerX.equalTo(forecastBG.snp.centerX)
         }
