@@ -11,17 +11,21 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxAppState
+import RxCoreLocation
 import SnapKit
+import CoreLocation
+
 
 protocol TodayWeatherViewBindable {
     //View -> ViewModel
     var viewWillAppear: PublishSubject<Void> { get }
     var tappedNext: PublishRelay<Void> { get }
     var willDisplayCell: PublishRelay<IndexPath> { get }
+    var loactionData: PublishSubject<CLLocation?> { get }
     
     //ViewModel -> View
-    var currentWeatherData: Driver<[GribItem]> { get }
-    var forecastWeatherData: Driver<[WeatherItem]> { get }
+    var currentWeatherData: Driver<[ForecastItem]> { get }
+    var forecastWeatherData: Driver<[ForecastItem]> { get }
 //    var cellData: Driver<[WeatherItem]> { get }
     var push: Driver<UIViewController> { get }
 //    var reloadList: Signal<Void> { get }
@@ -30,12 +34,20 @@ protocol TodayWeatherViewBindable {
 class TodayWeatherViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     var disposeBag = DisposeBag()
     
-    //UI
-    var forecastViewCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-    var temp = UILabel()
-    var tappedViewControllerBtn = UIButton()
+    //UI - 상단 메뉴 및 지역이름
+    var menu = UIButton()
+    var locationNameLabel = UILabel().title01
+    
+    //UI - 상단 날씨 이미지
+    var animationView = AnimationWeatherView()
+    
+    //UI - 중단 현재 날씨
+    var currentWeatherView = CurrentWeatherView()
+    
+    //UI - 하단 예보 ScrollView
     var scrollView = UIScrollView()
     var stackView = UIStackView()
+    let location = CLLocationManager()
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -59,20 +71,20 @@ class TodayWeatherViewController: UIViewController, UICollectionViewDelegateFlow
             .bind(to: viewModel.viewWillAppear)
             .disposed(by: disposeBag)
         
-        viewModel.currentWeatherData
-            .drive(self.rx.setCurrentlyData)
-            .disposed(by: disposeBag)
+//        viewModel.currentWeatherData
+//            .drive(self.rx.setCurrentlyData)
+//            .disposed(by: disposeBag)
         
-        forecastViewCollectionView.rx.willDisplayCell
-            .map { $0.at }
-            .bind(to: viewModel.willDisplayCell)
-            .disposed(by: disposeBag)
-        
-        //버튼을 눌렀을때
-        tappedViewControllerBtn.rx.tap
-            .map { _ in }
-            .bind(to: viewModel.tappedNext)
-            .disposed(by: disposeBag)
+//        forecastViewCollectionView.rx.willDisplayCell
+//            .map { $0.at }
+//            .bind(to: viewModel.willDisplayCell)
+//            .disposed(by: disposeBag)
+//
+//        //버튼을 눌렀을때
+//        tappedViewControllerBtn.rx.tap
+//            .map { _ in }
+//            .bind(to: viewModel.tappedNext)
+//            .disposed(by: disposeBag)
         
         viewModel.push.drive(onNext: { vc in
             //MARK: 🐶 Rx에 self.rx.push~가 없따
@@ -102,55 +114,79 @@ class TodayWeatherViewController: UIViewController, UICollectionViewDelegateFlow
 //                self?.forecastViewCollectionView.reloadData()
 //            })
 //            .disposed(by: disposeBag)
+        
+        viewModel.currentWeatherData.drive(onNext: { items in
+            print("현재 날씨: ", items)
+            })
+            .disposed(by: disposeBag)
+        location.requestWhenInUseAuthorization()
+        location.startUpdatingLocation()
+        location.rx
+            .placemark
+            .subscribe(onNext: { place in
+                guard let name = place.country else { return }
+                print(name)
+            })
+            .disposed(by: disposeBag)
+        
+        location.rx
+            .location
+            .bind(to: viewModel.loactionData)
+            .disposed(by: disposeBag)
+        
     }
     
     func attribute() {
-        view.backgroundColor = .white
-        title = "오늘의 날씨이이"
-        
-        let item2 = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
-        navigationItem.leftBarButtonItem = item2
-        
-        tappedViewControllerBtn.setTitle("다음 뷰 컨트롤러!", for: .normal)
-        tappedViewControllerBtn.backgroundColor = .black
-        
-        forecastViewCollectionView.backgroundColor = .yellow
-        forecastViewCollectionView.register(ForecastCell.self, forCellWithReuseIdentifier: String(describing: ForecastCell.self))
-        forecastViewCollectionView.rx.setDelegate(self)
-            .disposed(by: disposeBag)
-        let flowLayout = UICollectionViewFlowLayout()
-        forecastViewCollectionView.setCollectionViewLayout(flowLayout, animated: true)
-        
+        view.backgroundColor = AppAttribute.AppColor.background
+        menu.setImage(#imageLiteral(resourceName: "Menu"), for: .normal)
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         stackView.axis = .horizontal
-        stackView.spacing = 8
+        stackView.spacing = 16
         stackView.backgroundColor = .black
-        
+        stackView.distribution = .fillEqually
+        locationNameLabel.text = "서울시 금천구"
+        locationNameLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
     }
     
     func layout() {
-        view.addSubview(forecastViewCollectionView)
-        view.addSubview(temp)
-        view.addSubview(tappedViewControllerBtn)
+        view.addSubview(menu)
+        view.addSubview(locationNameLabel)
+        view.addSubview(animationView)
+        view.addSubview(currentWeatherView)
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
         
-        temp.snp.makeConstraints {
-            $0.center.equalToSuperview()
+        menu.snp.makeConstraints {
+            $0.width.height.equalTo(45)
+            $0.top.equalToSuperview().offset(24)
+            $0.left.equalToSuperview().offset(8)
+        }
+        
+        locationNameLabel.snp.makeConstraints {
+            $0.top.equalTo(menu.snp.bottom).offset(8)
+            $0.left.equalToSuperview().offset(16)
+            $0.right.equalToSuperview().offset(-16)
+            $0.height.equalTo(16)
+        }
+        
+        animationView.snp.makeConstraints {
+            $0.top.equalTo(locationNameLabel.snp.bottom).offset(16)
+            $0.bottom.equalTo(currentWeatherView.snp.top).offset(-16)
             $0.left.right.equalToSuperview()
         }
         
-        tappedViewControllerBtn.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(200)
+        currentWeatherView.snp.makeConstraints {
             $0.left.equalToSuperview().offset(16)
             $0.right.equalToSuperview().offset(-16)
-            $0.height.equalTo(56)
+            $0.height.equalTo(100)
+            $0.bottom.equalTo(scrollView.snp.top).offset(-48)
         }
-        
+
         scrollView.snp.makeConstraints {
-            $0.bottom.equalToSuperview().offset(-100)
-            $0.left.equalToSuperview().offset(16)
-            $0.right.equalToSuperview().offset(-16)
-            $0.height.equalTo(200)
+            $0.bottom.equalToSuperview()
+            $0.left.equalToSuperview()
+            $0.right.equalToSuperview()
+            $0.height.equalTo(225)
         }
         
         stackView.snp.makeConstraints {
@@ -163,7 +199,9 @@ class TodayWeatherViewController: UIViewController, UICollectionViewDelegateFlow
 extension Reactive where Base: TodayWeatherViewController {
     var setCurrentlyData: Binder<[GribItem]> {
         return Binder(base) { base, data in
-            base.temp.text = "\(data.first!.category)"
+//            base.temp.text = "\(data.first!.category)"
         }
     }
 }
+
+//오늘의 최저, 최고 기온은 2시 데이터를 날짜로 확인, 저장해두고 있을 경우 네트워킹 안하고, 없으면 네트워킹 해주기

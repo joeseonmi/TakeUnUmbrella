@@ -18,9 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow()
         let rootViewController = TodayWeatherViewController()
         let rootViewModel = TodayWeatherViewModel()
-        let navi = UINavigationController(rootViewController: rootViewController)
         rootViewController.bind(rootViewModel)
-        window?.rootViewController = navi
+        window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
         return true
     }

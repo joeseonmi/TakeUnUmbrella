@@ -42,4 +42,13 @@ enum GribCode: String, Codable {
     case precipitationForm  = "PTY"
     case windDirection      = "VEC"
     case windSpeed          = "WSD"
+    case sky                = "SKY"
+    case thunder            = "LGT"
+    case precipitationPer   = "POP"
+    case rainfallAn6Hours   = "R06"
+    case snowfallAn6Hours   = "S06"
+    case temperAn3Hours     = "T3H"
+    case minTemper          = "TMN"
+    case maxTemper          = "TMX"
+    case wave               = "WAV"
 }

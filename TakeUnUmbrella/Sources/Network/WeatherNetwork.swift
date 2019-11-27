@@ -27,6 +27,7 @@ enum WeatherNetworkError: Error {
 protocol WeatherNetwork {
     typealias WeatherResult<T> = Result<T, WeatherNetworkError>
     
-    func getCurrentWeather() -> Single<WeatherResult<GribFcstResponse>>
-    func getForecast() -> Single<WeatherResult<WeatherFcstResponse>>
+    func getCurrentWeather(components: WeatherSearchComponents) -> Single<WeatherResult<GribFcstResponse>>
+    func getDangi(components: WeatherSearchComponents) -> Single<WeatherResult<WeatherFcstResponse>>
+    func getForecast(components: WeatherSearchComponents) -> Single<WeatherResult<WeatherFcstResponse>>
 }

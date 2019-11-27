@@ -11,16 +11,16 @@ import RxSwift
 import Moya
 
 enum WeatherAPI {
-    case getCurrentWeather(lat: String, lon: String) //실황정보 조회
-    case getDangiFcst                                //초단기예보
-    case getForecast                                 //특징지역의 예보
+    case getCurrentWeather(components: WeatherSearchComponents) //실황정보 조회
+    case getDangiFcst(components: WeatherSearchComponents)      //초단기예보
+    case getForecast(components: WeatherSearchComponents)       //특징지역의 예보
 }
 
 extension WeatherAPI: TargetType {
     var baseURL: URL {
         return URL(string: URLs.API.weatherAPI)!
     }
-   
+    
     var path: String {
         switch self {
         case .getCurrentWeather:
@@ -42,27 +42,18 @@ extension WeatherAPI: TargetType {
     
     var task: Task {
         switch self {
-        case .getCurrentWeather:
+        case let .getCurrentWeather(components),
+             let .getDangiFcst(components),
+             let .getForecast(components):
             var parameter = [String: String]()
-            parameter["ServiceKey"] = AppConstants.AppKey.appKey.removingPercentEncoding!
-            parameter["base_date"] = "20191119"
-            parameter["base_time"] = "1630"
-            parameter["nx"] = "60"
-            parameter["ny"] = "120"
-            parameter["_type"] = "json"
-            parameter["numOfRows"] = "999"
-            return .requestParameters(parameters: parameter, encoding: URLEncoding.queryString)
-        case .getDangiFcst:
-            return .requestPlain
-        case .getForecast:
-            var parameter = [String: String]()
-            parameter["ServiceKey"] = AppConstants.AppKey.appKey.removingPercentEncoding!
-            parameter["base_date"] = "20191119"
-            parameter["base_time"] = "1830"
-            parameter["nx"] = "60"
-            parameter["ny"] = "120"
-            parameter["_type"] = "json"
-            parameter["numOfRows"] = "999"
+            parameter["ServiceKey"] = components.serviceKey
+            parameter["nx"] = components.nx
+            parameter["ny"] = components.ny
+            parameter["_type"] = components.type
+            parameter["numOfRows"] = components.numOfRows
+            parameter["base_time"] = components.baseTime
+            parameter["base_date"] = components.baseDate
+            print(parameter)
             return .requestParameters(parameters: parameter, encoding: URLEncoding.queryString)
         }
     }
@@ -70,5 +61,5 @@ extension WeatherAPI: TargetType {
     var headers: [String : String]? {
         return nil
     }
-
+    
 }

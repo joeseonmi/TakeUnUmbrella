@@ -14,6 +14,8 @@ target 'TakeUnUmbrella' do
    pod 'RxAppState'
    pod 'RxDataSources', '~> 3.1.0'
    pod 'Moya/RxSwift', '~> 13.0'
+   pod 'RxCoreLocation', '~> 1.3.2'
+   pod "RxRealm"
 
    pod 'SnapKit', '~> 4.2.0'
 

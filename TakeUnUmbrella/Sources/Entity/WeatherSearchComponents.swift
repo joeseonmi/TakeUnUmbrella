@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RxRealm
+import RealmSwift
 
 struct WeatherSearchComponents: Codable {
     let serviceKey: String
@@ -15,13 +17,17 @@ struct WeatherSearchComponents: Codable {
     let nx: String
     let ny: String
     let type: String
+    let numOfRows: String
+}
+
+class Parameters: Object {
+    @objc let parameterID: Int = 0
+    @objc let baseDate: String = ""
+    @objc let baseTime: String = ""
+    @objc let nx: String = ""
+    @objc let ny: String = ""
     
-    enum CodingKeys: String, CodingKey {
-        case serviceKey = "ServiceKey"
-        case baseDate = "base_date"
-        case baseTime = "base_time"
-        case nx
-        case ny
-        case type = "_type"
+    override class func primaryKey() -> String? {
+        return "parameterID"
     }
 }

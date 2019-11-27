@@ -14,9 +14,9 @@ class WeatherNetworkImpl: WeatherNetwork {
     
     let provider = MoyaProvider<WeatherAPI>()
   
-    func getCurrentWeather() -> Single<WeatherResult<GribFcstResponse>> {
+    func getCurrentWeather(components: WeatherSearchComponents) -> Single<WeatherResult<GribFcstResponse>> {
         return provider.rx.request(
-            .getCurrentWeather(lat: "60", lon: "120")
+            .getCurrentWeather(components: components)
         )
         .filterSuccessfulStatusCodes()
         .map { res in
@@ -24,10 +24,21 @@ class WeatherNetworkImpl: WeatherNetwork {
         }
         .map { .success($0) }
     }
-
-    func getForecast() -> Single<WeatherResult<WeatherFcstResponse>> {
+    
+    func getDangi(components: WeatherSearchComponents) -> Single<WeatherResult<WeatherFcstResponse>> {
         return provider.rx.request(
-            .getForecast
+            .getDangiFcst(components: components)
+        )
+            .filterSuccessfulStatusCodes()
+            .map { res in
+                return try JSONDecoder().decode(WeatherFcstResponse.self, from: res.data)
+        }
+        .map { .success($0) }
+    }
+
+    func getForecast(components: WeatherSearchComponents) -> Single<WeatherResult<WeatherFcstResponse>> {
+        return provider.rx.request(
+            .getForecast(components: components)
         )
             .filterSuccessfulStatusCodes()
             .map { res in

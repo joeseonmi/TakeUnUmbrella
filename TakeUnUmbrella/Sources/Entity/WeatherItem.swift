@@ -27,10 +27,10 @@ struct WeatherFcstResponseBodyItem: Codable {
 
 struct WeatherItem: Codable {
     let baseDate: Int
-    let baseTime: Int
-    let category: String
+    let baseTime: String
+    let category: GribCode
     let fcstDate: Int
-    let fcstTime: FcstTime
+    var fcstTime: String
     let fcstValue: String
     let nx: Int
     let ny: Int
@@ -42,46 +42,52 @@ struct WeatherItem: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         baseDate = try container.decode(Int.self, forKey: .baseDate)
-        baseTime = try container.decode(Int.self, forKey: .baseTime)
-        category = try container.decode(String.self, forKey: .category)
+        if let intValue = try? container.decode(Int.self, forKey: .baseTime) {
+            baseTime = "\(intValue)"
+        } else {
+            baseTime = try container.decode(String.self, forKey: .baseTime)
+        }
+        category = try container.decode(GribCode.self, forKey: .category)
         fcstDate = try container.decode(Int.self, forKey: .fcstDate)
-        fcstTime = try container.decode(FcstTime.self, forKey: .fcstTime)
-        fcstValue = try container.decode(String.self, forKey: .fcstValue)
+        if let intValue = try? container.decode(Int.self, forKey: .fcstTime) {
+            fcstTime = "\(intValue)"
+        } else {
+            fcstTime = try container.decode(String.self, forKey: .fcstTime)
+        }
+        if let doubleValue = try? container.decode(Double.self, forKey: .fcstValue) {
+            fcstValue = "\(doubleValue)"
+        } else {
+            fcstValue = try container.decode(String.self, forKey: .fcstValue)
+        }
         nx = try container.decode(Int.self, forKey: .nx)
         ny = try container.decode(Int.self, forKey: .ny)
     }
 }
-
 //MARK: 🐶 SingleValue 알아보기
-//해당 부분은 Any는 Cadable에서 쓸 수 없기 때문에 처리해준 부분
-enum FcstTime: Codable {
+enum FcstValue: Codable {
     
-//    case string(String)
-    case int(Int)
+    case string(String)
+    case double(Double)
     
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        if let temp = try? container.decode(String.self) {
-            guard let intValue = Int(temp) else {
-                self = .int(0)
-                return
-            }
-            self = .int(intValue)
+       if let temp = try? container.decode(String.self) {
+                 self = .string(temp)
+                 return
+             }
+        if let temp = try? container.decode(Double.self) {
+            self = .double(temp)
             return
         }
-        if let temp = try? container.decode(Int.self) {
-            self = .int(temp)
-            return
-        }
-        throw DecodingError.typeMismatch(FcstTime.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "wrong type"))
+        throw DecodingError.typeMismatch(FcstValue.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "wrong type"))
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
-//        case .string(let value):
-//            try container.encode(value)
-        case .int(let value):
+        case .string(let value):
+            try container.encode(value)
+        case .double(let value):
             try container.encode(value)
             
         }
