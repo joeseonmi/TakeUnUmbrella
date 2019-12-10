@@ -42,6 +42,10 @@ class CurrentWeatherView: UIView {
         windForceLabel.text = wind(value: data.wind.doubleToInt())
     }
     
+    func configureMaxMinTemp(data: MaxMinToday) {
+        self.maxminLabel.text = "\(data.min.doubleRoundedToInt()) / \(data.max.doubleRoundedToInt())"
+    }
+    
     private func wind(value: String) -> String {
         guard let intValue = Int(value) else { return "" }
         if intValue < 4 {

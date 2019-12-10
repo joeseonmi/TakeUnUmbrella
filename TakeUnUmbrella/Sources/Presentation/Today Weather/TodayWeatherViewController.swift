@@ -18,17 +18,14 @@ import CoreLocation
 
 protocol TodayWeatherViewBindable {
     //View -> ViewModel
-    var viewWillAppear: PublishSubject<Void> { get }
-    var tappedNext: PublishRelay<Void> { get }
-    var willDisplayCell: PublishRelay<IndexPath> { get }
-    var loactionData: PublishSubject<CLLocation?> { get }
+    var viewWillAppear: PublishSubject<CLLocation?> { get }
+    var tappedMenu: PublishRelay<Void> { get }
     
     //ViewModel -> View
     var currentWeatherData: Driver<[ForecastItem]> { get }
-    var forecastWeatherData: Driver<[ForecastItem]> { get }
-//    var cellData: Driver<[WeatherItem]> { get }
+    var forecastWeatherData: Driver<[[ForecastItem]]> { get }
+    var maxMinTempData: Driver<MaxMinToday> { get }
     var push: Driver<UIViewController> { get }
-//    var reloadList: Signal<Void> { get }
 }
 
 class TodayWeatherViewController: UIViewController, UICollectionViewDelegateFlowLayout {
@@ -66,77 +63,66 @@ class TodayWeatherViewController: UIViewController, UICollectionViewDelegateFlow
     func bind(_ viewModel: TodayWeatherViewBindable) {
         self.disposeBag = DisposeBag()
     
+        location.requestWhenInUseAuthorization()
+        location.startUpdatingLocation()
+        location.rx
+            .placemark
+            .subscribe(onNext: { [weak self] place in
+                guard let name = place.locality, let sub = place.subLocality else { return }
+                self?.locationNameLabel.text = name + " " + sub
+            })
+            .disposed(by: disposeBag)
+
         self.rx.viewWillAppear
-            .map { _ in Void() }
+            .map { [weak self] _ in
+                return self?.location.location
+            }
             .bind(to: viewModel.viewWillAppear)
             .disposed(by: disposeBag)
         
-//        viewModel.currentWeatherData
-//            .drive(self.rx.setCurrentlyData)
-//            .disposed(by: disposeBag)
-        
-//        forecastViewCollectionView.rx.willDisplayCell
-//            .map { $0.at }
-//            .bind(to: viewModel.willDisplayCell)
-//            .disposed(by: disposeBag)
-//
-//        //버튼을 눌렀을때
-//        tappedViewControllerBtn.rx.tap
-//            .map { _ in }
-//            .bind(to: viewModel.tappedNext)
-//            .disposed(by: disposeBag)
-        
+        menu.rx.tap.map { _ in }
+            .bind(to: viewModel.tappedMenu)
+            .disposed(by: disposeBag)
+       
         viewModel.push.drive(onNext: { vc in
             //MARK: 🐶 Rx에 self.rx.push~가 없따
-            return self.present(vc, animated: true, completion: nil)
+            return self.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: disposeBag)
         
         viewModel.forecastWeatherData
             .drive(onNext: { [weak self] data in
-                data.forEach { [weak self] item in
-                    let itemView = ForecastView()
-                    itemView.configureView(data: item)
-                    self?.stackView.addArrangedSubview(itemView)
+                var index = 0
+                for i in data {
+                    i.forEach { [weak self] item in
+                        let itemView = ForecastView()
+                        itemView.configureView(data: item, forecastDate: index)
+                        self?.stackView.addArrangedSubview(itemView)
+                    }
+                    index += 1
                 }
             })
-            //MARK: 🐶 이 드라이브 코드의 정체는 무엇인지 모르겠음..@.@
-//            .drive(forecastViewCollectionView.rx.items) { cv, row, data in
-//                let index = IndexPath(row: row, section: 0)
-//                let cell = cv.dequeueReusableCell(withReuseIdentifier: String(describing: ForecastCell.self), for: index) as! ForecastCell
-//                cell.configureCell(data: data)
-//                return cell
-//        }
         .disposed(by: disposeBag)
         
-//        viewModel.reloadList
-//            .emit(onNext: { [weak self] _ in
-//                self?.forecastViewCollectionView.reloadData()
-//            })
-//            .disposed(by: disposeBag)
-        
-        viewModel.currentWeatherData.drive(onNext: { [weak self] items in
+        viewModel.currentWeatherData
+            .drive(onNext: { [weak self] items in
             guard let current = items.first else { return }
             self?.currentWeatherView.configure(data: current)
             self?.animationView.configure(data: current)
             })
             .disposed(by: disposeBag)
         
-        location.requestWhenInUseAuthorization()
-        location.startUpdatingLocation()
-        location.rx
-            .placemark
-            .subscribe(onNext: { place in
-                guard let name = place.country else { return }
-                print(name)
+        viewModel.maxMinTempData
+            .drive(onNext: { [weak self] items in
+                self?.currentWeatherView.configureMaxMinTemp(data: items)
             })
             .disposed(by: disposeBag)
         
-        location.rx
-            .location
-            .bind(to: viewModel.loactionData)
-            .disposed(by: disposeBag)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.isHidden = true
     }
     
     func attribute() {
@@ -147,7 +133,6 @@ class TodayWeatherViewController: UIViewController, UICollectionViewDelegateFlow
         stackView.spacing = 16
         stackView.backgroundColor = .black
         stackView.distribution = .fillEqually
-        locationNameLabel.text = "서울시 금천구"
         locationNameLabel.textAlignment = .right
         locationNameLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
     }
@@ -201,9 +186,9 @@ class TodayWeatherViewController: UIViewController, UICollectionViewDelegateFlow
 
 //MARK: 🐶 ??
 extension Reactive where Base: TodayWeatherViewController {
-    var setCurrentlyData: Binder<[GribItem]> {
+    var setLocationName: Binder<(String, String)> {
         return Binder(base) { base, data in
-//            base.temp.text = "\(data.first!.category)"
+            base.locationNameLabel.text = "\(data.0) \(data.1)"
         }
     }
 }

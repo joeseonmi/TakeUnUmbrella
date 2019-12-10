@@ -19,15 +19,3 @@ struct WeatherSearchComponents: Codable {
     let type: String
     let numOfRows: String
 }
-
-class Parameters: Object {
-    @objc let parameterID: Int = 0
-    @objc let baseDate: String = ""
-    @objc let baseTime: String = ""
-    @objc let nx: String = ""
-    @objc let ny: String = ""
-    
-    override class func primaryKey() -> String? {
-        return "parameterID"
-    }
-}

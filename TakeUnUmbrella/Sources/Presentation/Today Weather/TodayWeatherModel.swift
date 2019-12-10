@@ -29,8 +29,9 @@ struct TodayWeatherModel {
         return weatherNetwork.getForecast(components: components)
     }
     
-    func parsForecastData(value: [WeatherItem]) -> [ForecastItem] {
+    func parsForecastData(value: [WeatherItem]) -> [[ForecastItem]] {
         var result: [ForecastItem] = []
+        var resultForecast: [[ForecastItem]] = []
         //예보날짜, 시간이 같은것들끼리 묶음, 해당 묶음에서 처리해야될듯
         let sort = Dictionary.init(grouping: value, by: { $0.fcstDate } )
         let sortKeys = sort.keys.sorted()
@@ -62,48 +63,76 @@ struct TodayWeatherModel {
                 result.append(resultItem)
             }
         }
-//        print("++++++++++++\n",result,"\n++++++++++++")
-        return result
+        for i in sortKeys {
+            let forecast = result.filter {  $0.forecastDate == "\(i)" }
+            resultForecast.append(forecast)
+        }
+        //        print("++++++++++++\n",result,"\n++++++++++++")
+        return resultForecast
     }
     func parsDangiData(value: [WeatherItem]) -> [ForecastItem] {
-            var result: [ForecastItem] = []
-            //예보날짜, 시간이 같은것들끼리 묶음, 해당 묶음에서 처리해야될듯
-            let sort = Dictionary.init(grouping: value, by: { $0.fcstDate } )
-            let sortKeys = sort.keys.sorted()
-            sortKeys.forEach { key in
-                guard let temp = sort[key] else { return }
-                let forecastDic = Dictionary.init(grouping: temp, by: { $0.fcstTime } )
-                let keys = forecastDic.keys.sorted()
-                var resultItem = ForecastItem(forecastDate: "",
-                                              forecastTime: "",
-                                              temperature: "",
-                                              rainfallPercent: "",
-                                              humi: "",
-                                              wind: "",
-                                              sky: "",
-                                              skyRain: "")
-                keys.forEach { key in
-                    guard let tempDic = forecastDic[key] else { return }
-                    tempDic.forEach { item in
-                        resultItem.forecastDate = "\(item.fcstDate)"
-                        resultItem.forecastTime = item.fcstTime
-                        switch item.category {
-                        case .temperature:       resultItem.temperature = "\(item.fcstValue)"
-                        case .precipitationForm: resultItem.skyRain = "\(item.fcstValue)"
-                        case .rainfallAnHour:    resultItem.rainfallPercent = "\(item.fcstValue)"
-                        case .sky:               resultItem.sky = "\(item.fcstValue)"
-                        case .Humidity:          resultItem.humi = "\(item.fcstValue)"
-                        case .windSpeed:         resultItem.wind = "\(item.fcstValue)"
-                        default: break
-                        }
+        var result: [ForecastItem] = []
+        //예보날짜, 시간이 같은것들끼리 묶음, 해당 묶음에서 처리해야될듯
+        let sort = Dictionary.init(grouping: value, by: { $0.fcstDate } )
+        let sortKeys = sort.keys.sorted()
+        sortKeys.forEach { key in
+            guard let temp = sort[key] else { return }
+            let forecastDic = Dictionary.init(grouping: temp, by: { $0.fcstTime } )
+            let keys = forecastDic.keys.sorted()
+            var resultItem = ForecastItem(forecastDate: "",
+                                          forecastTime: "",
+                                          temperature: "",
+                                          rainfallPercent: "",
+                                          humi: "",
+                                          wind: "",
+                                          sky: "",
+                                          skyRain: "")
+            keys.forEach { key in
+                guard let tempDic = forecastDic[key] else { return }
+                tempDic.forEach { item in
+                    resultItem.forecastDate = "\(item.fcstDate)"
+                    resultItem.forecastTime = item.fcstTime
+                    switch item.category {
+                    case .temperature:       resultItem.temperature = "\(item.fcstValue)"
+                    case .precipitationForm: resultItem.skyRain = "\(item.fcstValue)"
+                    case .rainfallAnHour:    resultItem.rainfallPercent = "\(item.fcstValue)"
+                    case .sky:               resultItem.sky = "\(item.fcstValue)"
+                    case .Humidity:          resultItem.humi = "\(item.fcstValue)"
+                    case .windSpeed:         resultItem.wind = "\(item.fcstValue)"
+                    default: break
                     }
-                    result.append(resultItem)
+                }
+                result.append(resultItem)
+            }
+        }
+        //        print("++++++++++++\n",result,"\n++++++++++++")
+        return result
+    }
+    
+    func parsMaxMinData(value: [WeatherItem]) -> MaxMinToday {
+        //여기서 시강니 새벽 두시 전이면.. 다른 처리 해줘야함
+        var result = MaxMinToday(max: "", min: "")
+        //예보날짜, 시간이 같은것들끼리 묶음, 해당 묶음에서 처리해야될듯
+        let sort = Dictionary.init(grouping: value, by: { $0.fcstDate } )
+        let sortKeys = sort.keys.sorted()
+        print("두시데이터어어어어",sortKeys)
+        sortKeys.forEach { key in
+            guard let temp = sort[key] else { return }
+            let forecastDic = Dictionary.init(grouping: temp, by: { $0.fcstTime } )
+            let keys = forecastDic.keys.sorted()
+            keys.forEach { key in
+                guard let tempDic = forecastDic[key] else { return }
+                tempDic.forEach { item in
+                    switch item.category {
+                    case .minTemper: result.min              = "\(item.fcstValue)"
+                    case .maxTemper: result.max              = "\(item.fcstValue)"
+                    default: break
+                    }
                 }
             }
-    //        print("++++++++++++\n",result,"\n++++++++++++")
-            return result
         }
-    
+        return result
+    }
 }
 
 
@@ -119,9 +148,9 @@ extension TodayWeatherModel {
                                                 baseDate: dateParameter.date,
                                                 baseTime: dateParameter.time,
                                                 nx: "\(locationParameter.lat)",
-                                                ny: "\(locationParameter.lon)",
-                                                type: "json",
-                                                numOfRows: "999")
+            ny: "\(locationParameter.lon)",
+            type: "json",
+            numOfRows: "999")
         return parameter
     }
     
@@ -132,11 +161,26 @@ extension TodayWeatherModel {
                                                 baseDate: dateParameter.date,
                                                 baseTime: dateParameter.time,
                                                 nx: "\(locationParameter.lat)",
-                                                ny: "\(locationParameter.lon)",
-                                                type: "json",
-                                                numOfRows: "999")
+            ny: "\(locationParameter.lon)",
+            type: "json",
+            numOfRows: "999")
         return parameter
     }
+    
+    func makeMaxMinTempParameter(lat: Double, lon: Double) -> WeatherSearchComponents {
+        let dateParameter = make2amTimeParamter()
+        let locationParameter = convertGrid(code: "toXY", v1: lat, v2: lon)
+        let parameter = WeatherSearchComponents(serviceKey: AppConstants.AppKey.appKey.removingPercentEncoding!,
+                                                baseDate: dateParameter.date,
+                                                baseTime: dateParameter.time,
+                                                nx: "\(locationParameter.lat)",
+            ny: "\(locationParameter.lon)",
+            type: "json",
+            numOfRows: "999")
+        print("2시 데이터 파라미터", parameter)
+        return parameter
+    }
+    
     
     private func makeCurrentTimeParamter() -> (date: String, time: String) {
         let now = Date()
@@ -168,11 +212,11 @@ extension TodayWeatherModel {
             }
         }
         time = time + "00"
-  
+        
         return (date, time)
     }
     
-    private func make2amTimeParamter() -> [String: String] {
+    private func make2amTimeParamter() -> (date: String, time: String) {
         let now = Date()
         let dateFommater = DateFormatter()
         let timeFommater = DateFormatter()
@@ -197,9 +241,7 @@ extension TodayWeatherModel {
             }
         }
         
-        let parameter = ["base_date": date,
-                         "base_time": time]
-        return parameter
+        return (date, time)
     }
     
     private func forecasetSpaceParameter() -> (date: String, time: String) {

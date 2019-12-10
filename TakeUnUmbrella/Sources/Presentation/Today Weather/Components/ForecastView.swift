@@ -28,9 +28,17 @@ class ForecastView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureView(data: ForecastItem) {
-        timeLabel.text = "\(data.forecastTime)"
-        temperLabel.text = data.temperature.doubleToInt()
+    func configureView(data: ForecastItem, forecastDate: Int) {
+        guard let intTime = Int(data.forecastTime) else { return }
+        var date = ""
+        switch forecastDate {
+        case 0: date = "오늘"
+        case 1: date = "내일"
+        case 2: date = "모레"
+        default: date = "글피"
+        }
+        timeLabel.text = "\(date) \(intTime / 100)시"
+        temperLabel.text = data.temperature.doubleRoundedToInt()
         rainPer.text = data.rainfallPercent.doubleToInt() + "%"
         weatherIcon.image = data.weatherIcon()
     }
