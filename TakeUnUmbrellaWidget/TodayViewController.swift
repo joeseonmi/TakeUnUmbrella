@@ -8,12 +8,17 @@
 
 import UIKit
 import NotificationCenter
+import SnapKit
+
 
 class TodayViewController: UIViewController, NCWidgetProviding {
+    
+    let titleLabel = UILabel()
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        attribute()
+        layout()
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -26,4 +31,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         completionHandler(NCUpdateResult.newData)
     }
     
+    private func attribute() {
+        titleLabel.text = "우오아아아아앙"
+    }
+    
+    private func layout() {
+        view.addSubview(titleLabel)
+        
+        titleLabel.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+    }
 }
