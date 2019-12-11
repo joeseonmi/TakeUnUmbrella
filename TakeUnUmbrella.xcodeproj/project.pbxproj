@@ -33,6 +33,17 @@
 		2698F62523A0072B00CDEDDF /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F62423A0072B00CDEDDF /* ThemeModel.swift */; };
 		2698F62723A0110800CDEDDF /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F62623A0110800CDEDDF /* Notice.swift */; };
 		2698F62A23A0CB6300CDEDDF /* NoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F62923A0CB6300CDEDDF /* NoticeCell.swift */; };
+		2698F62C23A0E18100CDEDDF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F62B23A0E18100CDEDDF /* Theme.swift */; };
+		2698F62F23A0E2B400CDEDDF /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F62E23A0E2B400CDEDDF /* ThemeCell.swift */; };
+		2698F63223A0E94600CDEDDF /* DownloadBGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F63123A0E94600CDEDDF /* DownloadBGViewController.swift */; };
+		2698F63523A0E95D00CDEDDF /* DownloadBGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F63423A0E95D00CDEDDF /* DownloadBGViewModel.swift */; };
+		2698F63723A0E96B00CDEDDF /* DownloadBGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F63623A0E96B00CDEDDF /* DownloadBGModel.swift */; };
+		2698F63923A12A1300CDEDDF /* BGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F63823A12A1300CDEDDF /* BGImage.swift */; };
+		2698F63B23A12D2900CDEDDF /* BGImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F63A23A12D2900CDEDDF /* BGImageCell.swift */; };
+		2698F64223A13AC600CDEDDF /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2698F64123A13AC600CDEDDF /* NotificationCenter.framework */; };
+		2698F64523A13AC600CDEDDF /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F64423A13AC600CDEDDF /* TodayViewController.swift */; };
+		2698F64823A13AC600CDEDDF /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2698F64623A13AC600CDEDDF /* MainInterface.storyboard */; };
+		2698F64C23A13AC600CDEDDF /* TakeUnUmbrellaWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2698F64023A13AC600CDEDDF /* TakeUnUmbrellaWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		26A519FB237E86180014478D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A519FA237E86180014478D /* AppDelegate.swift */; };
 		26A51A04237E861A0014478D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26A51A03237E861A0014478D /* Assets.xcassets */; };
 		26A51A12237E861A0014478D /* TakeUnUmbrellaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A51A11237E861A0014478D /* TakeUnUmbrellaTests.swift */; };
@@ -53,6 +64,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2698F64A23A13AC600CDEDDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26A519EF237E86180014478D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2698F63F23A13AC600CDEDDF;
+			remoteInfo = TakeUnUmbrellaWidget;
+		};
 		26A51A0E237E861A0014478D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 26A519EF237E86180014478D /* Project object */;
@@ -68,6 +86,20 @@
 			remoteInfo = TakeUnUmbrella;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2698F65023A13AC600CDEDDF /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2698F64C23A13AC600CDEDDF /* TakeUnUmbrellaWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		05B9DDCF8417FC7A0889110E /* Pods-TakeUnUmbrellaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TakeUnUmbrellaTests.debug.xcconfig"; path = "Target Support Files/Pods-TakeUnUmbrellaTests/Pods-TakeUnUmbrellaTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +129,18 @@
 		2698F62423A0072B00CDEDDF /* ThemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModel.swift; sourceTree = "<group>"; };
 		2698F62623A0110800CDEDDF /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		2698F62923A0CB6300CDEDDF /* NoticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCell.swift; sourceTree = "<group>"; };
+		2698F62B23A0E18100CDEDDF /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		2698F62E23A0E2B400CDEDDF /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
+		2698F63123A0E94600CDEDDF /* DownloadBGViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadBGViewController.swift; sourceTree = "<group>"; };
+		2698F63423A0E95D00CDEDDF /* DownloadBGViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadBGViewModel.swift; sourceTree = "<group>"; };
+		2698F63623A0E96B00CDEDDF /* DownloadBGModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadBGModel.swift; sourceTree = "<group>"; };
+		2698F63823A12A1300CDEDDF /* BGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGImage.swift; sourceTree = "<group>"; };
+		2698F63A23A12D2900CDEDDF /* BGImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGImageCell.swift; sourceTree = "<group>"; };
+		2698F64023A13AC600CDEDDF /* TakeUnUmbrellaWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TakeUnUmbrellaWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2698F64123A13AC600CDEDDF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		2698F64423A13AC600CDEDDF /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		2698F64723A13AC600CDEDDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		2698F64923A13AC600CDEDDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26A519F7237E86180014478D /* TakeUnUmbrella.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeUnUmbrella.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26A519FA237E86180014478D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		26A51A03237E861A0014478D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,6 +172,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2698F63D23A13AC600CDEDDF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2698F64223A13AC600CDEDDF /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		26A519F4237E86180014478D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,6 +270,7 @@
 				2698F62023A0070900CDEDDF /* ThemeViewController.swift */,
 				2698F62223A0071B00CDEDDF /* ThemeViewModel.swift */,
 				2698F62423A0072B00CDEDDF /* ThemeModel.swift */,
+				2698F62D23A0E29F00CDEDDF /* Components */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -230,12 +283,50 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		2698F62D23A0E29F00CDEDDF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2698F62E23A0E2B400CDEDDF /* ThemeCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2698F63023A0E91400CDEDDF /* DownloadBG */ = {
+			isa = PBXGroup;
+			children = (
+				2698F63123A0E94600CDEDDF /* DownloadBGViewController.swift */,
+				2698F63623A0E96B00CDEDDF /* DownloadBGModel.swift */,
+				2698F63423A0E95D00CDEDDF /* DownloadBGViewModel.swift */,
+				2698F63323A0E94A00CDEDDF /* Components */,
+			);
+			path = DownloadBG;
+			sourceTree = "<group>";
+		};
+		2698F63323A0E94A00CDEDDF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2698F63A23A12D2900CDEDDF /* BGImageCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2698F64323A13AC600CDEDDF /* TakeUnUmbrellaWidget */ = {
+			isa = PBXGroup;
+			children = (
+				2698F64423A13AC600CDEDDF /* TodayViewController.swift */,
+				2698F64623A13AC600CDEDDF /* MainInterface.storyboard */,
+				2698F64923A13AC600CDEDDF /* Info.plist */,
+			);
+			path = TakeUnUmbrellaWidget;
+			sourceTree = "<group>";
+		};
 		26A519EE237E86180014478D = {
 			isa = PBXGroup;
 			children = (
 				26A519F9237E86180014478D /* TakeUnUmbrella */,
 				26A51A10237E861A0014478D /* TakeUnUmbrellaTests */,
 				26A51A1B237E861A0014478D /* TakeUnUmbrellaUITests */,
+				2698F64323A13AC600CDEDDF /* TakeUnUmbrellaWidget */,
 				26A519F8237E86180014478D /* Products */,
 				B3E23B15746679E97C487D82 /* Pods */,
 				B90060ADF693099E4446BF93 /* Frameworks */,
@@ -248,6 +339,7 @@
 				26A519F7237E86180014478D /* TakeUnUmbrella.app */,
 				26A51A0D237E861A0014478D /* TakeUnUmbrellaTests.xctest */,
 				26A51A18237E861A0014478D /* TakeUnUmbrellaUITests.xctest */,
+				2698F64023A13AC600CDEDDF /* TakeUnUmbrellaWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -324,6 +416,8 @@
 				26420AD7238E5FFC00BFD788 /* ForecastItem.swift */,
 				2698F62623A0110800CDEDDF /* Notice.swift */,
 				26420AE2239E93A900BFD788 /* MaxMinTemp.swift */,
+				2698F63823A12A1300CDEDDF /* BGImage.swift */,
+				2698F62B23A0E18100CDEDDF /* Theme.swift */,
 				261CA9D823800D4100037D37 /* WeatherGrib.swift */,
 			);
 			path = Entity;
@@ -338,6 +432,7 @@
 				26420AE4239EB6DF00BFD788 /* Setting */,
 				26420AEC239F7F0E00BFD788 /* Notice */,
 				2698F61F23A006C700CDEDDF /* Theme */,
+				2698F63023A0E91400CDEDDF /* DownloadBG */,
 				26A51A37237E8C110014478D /* Other Place Weather */,
 			);
 			path = Presentation;
@@ -388,6 +483,7 @@
 				7D5A0A043C6DC8322BCE9028 /* Pods_TakeUnUmbrella.framework */,
 				DDDA5F4E4A1F3811DBE86C9A /* Pods_TakeUnUmbrella_TakeUnUmbrellaUITests.framework */,
 				3315A2C92BEFA3E665675C9E /* Pods_TakeUnUmbrellaTests.framework */,
+				2698F64123A13AC600CDEDDF /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -395,6 +491,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2698F63F23A13AC600CDEDDF /* TakeUnUmbrellaWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2698F64D23A13AC600CDEDDF /* Build configuration list for PBXNativeTarget "TakeUnUmbrellaWidget" */;
+			buildPhases = (
+				2698F63C23A13AC600CDEDDF /* Sources */,
+				2698F63D23A13AC600CDEDDF /* Frameworks */,
+				2698F63E23A13AC600CDEDDF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TakeUnUmbrellaWidget;
+			productName = TakeUnUmbrellaWidget;
+			productReference = 2698F64023A13AC600CDEDDF /* TakeUnUmbrellaWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		26A519F6237E86180014478D /* TakeUnUmbrella */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26A51A21237E861A0014478D /* Build configuration list for PBXNativeTarget "TakeUnUmbrella" */;
@@ -404,10 +517,12 @@
 				26A519F4237E86180014478D /* Frameworks */,
 				26A519F5237E86180014478D /* Resources */,
 				FB00663E624797418436CC10 /* [CP] Embed Pods Frameworks */,
+				2698F65023A13AC600CDEDDF /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2698F64B23A13AC600CDEDDF /* PBXTargetDependency */,
 			);
 			name = TakeUnUmbrella;
 			productName = TakeUnUmbrella;
@@ -463,6 +578,9 @@
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "조선미";
 				TargetAttributes = {
+					2698F63F23A13AC600CDEDDF = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
 					26A519F6237E86180014478D = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
@@ -492,11 +610,20 @@
 				26A519F6237E86180014478D /* TakeUnUmbrella */,
 				26A51A0C237E861A0014478D /* TakeUnUmbrellaTests */,
 				26A51A17237E861A0014478D /* TakeUnUmbrellaUITests */,
+				2698F63F23A13AC600CDEDDF /* TakeUnUmbrellaWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2698F63E23A13AC600CDEDDF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2698F64823A13AC600CDEDDF /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		26A519F5237E86180014478D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -627,23 +754,35 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2698F63C23A13AC600CDEDDF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2698F64523A13AC600CDEDDF /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		26A519F3237E86180014478D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				26420AEA239EB76A00BFD788 /* SettingModel.swift in Sources */,
 				261CA9D4237FE73000037D37 /* WeatherSearchComponents.swift in Sources */,
+				2698F63723A0E96B00CDEDDF /* DownloadBGModel.swift in Sources */,
 				261CA9D2237ED21F00037D37 /* WeatherAPI.swift in Sources */,
 				2698F62523A0072B00CDEDDF /* ThemeModel.swift in Sources */,
 				26A519FB237E86180014478D /* AppDelegate.swift in Sources */,
 				26420ADC238EDE3100BFD788 /* CurrentWeatherView.swift in Sources */,
 				26420AF6239F870100BFD788 /* FirebaseNetworkImpl.swift in Sources */,
+				2698F63B23A12D2900CDEDDF /* BGImageCell.swift in Sources */,
 				26A51A31237E86D30014478D /* MainViewController.swift in Sources */,
 				26A51A3D237E8E310014478D /* TodayWeatherModel.swift in Sources */,
+				2698F62C23A0E18100CDEDDF /* Theme.swift in Sources */,
 				26420AF2239F7F3900BFD788 /* NoticeModel.swift in Sources */,
 				2698F62123A0070900CDEDDF /* ThemeViewController.swift in Sources */,
 				26420AF4239F868B00BFD788 /* FirebaseNetwork.swift in Sources */,
 				26A51A3F237E8E480014478D /* WeatherNetwork.swift in Sources */,
+				2698F62F23A0E2B400CDEDDF /* ThemeCell.swift in Sources */,
 				26A51A3B237E8E290014478D /* TodayWeatherViewModel.swift in Sources */,
 				26A51A39237E8E1D0014478D /* TodayWeatherViewController.swift in Sources */,
 				2698F62723A0110800CDEDDF /* Notice.swift in Sources */,
@@ -654,7 +793,9 @@
 				26420AD4238D742100BFD788 /* Labels.swift in Sources */,
 				26420ADF239B91F200BFD788 /* MaxMinTemper.swift in Sources */,
 				26A51A45237E96530014478D /* WeatherItem.swift in Sources */,
+				2698F63223A0E94600CDEDDF /* DownloadBGViewController.swift in Sources */,
 				26420AF0239F7F2E00BFD788 /* NoticeViewModel.swift in Sources */,
+				2698F63523A0E95D00CDEDDF /* DownloadBGViewModel.swift in Sources */,
 				26420AD8238E5FFC00BFD788 /* ForecastItem.swift in Sources */,
 				26420AD6238D761600BFD788 /* Views.swift in Sources */,
 				26420ADA238ED72B00BFD788 /* AnimationWeatherView.swift in Sources */,
@@ -664,6 +805,7 @@
 				26420AE1239B937E00BFD788 /* TimeParameters.swift in Sources */,
 				261CA9DB238402F700037D37 /* ForecastView.swift in Sources */,
 				26A51A41237E8E580014478D /* WeatherNetworkImpl.swift in Sources */,
+				2698F63923A12A1300CDEDDF /* BGImage.swift in Sources */,
 				26A51A43237E91400014478D /* Constants.swift in Sources */,
 				2698F62A23A0CB6300CDEDDF /* NoticeCell.swift in Sources */,
 			);
@@ -688,6 +830,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2698F64B23A13AC600CDEDDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2698F63F23A13AC600CDEDDF /* TakeUnUmbrellaWidget */;
+			targetProxy = 2698F64A23A13AC600CDEDDF /* PBXContainerItemProxy */;
+		};
 		26A51A0F237E861A0014478D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 26A519F6237E86180014478D /* TakeUnUmbrella */;
@@ -700,7 +847,56 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		2698F64623A13AC600CDEDDF /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2698F64723A13AC600CDEDDF /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		2698F64E23A13AC600CDEDDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H3R65PNVV;
+				INFOPLIST_FILE = TakeUnUmbrellaWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kr.devjoe.Woosan.TakeUnUmbrellaWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2698F64F23A13AC600CDEDDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H3R65PNVV;
+				INFOPLIST_FILE = TakeUnUmbrellaWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kr.devjoe.Woosan.TakeUnUmbrellaWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		26A51A1F237E861A0014478D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -819,6 +1015,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 853DA4AD265FC9D1E9C0AC12 /* Pods-TakeUnUmbrella.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9H3R65PNVV;
@@ -839,6 +1036,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 97DFCBD22E99199FF70E864E /* Pods-TakeUnUmbrella.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9H3R65PNVV;
@@ -946,6 +1144,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2698F64D23A13AC600CDEDDF /* Build configuration list for PBXNativeTarget "TakeUnUmbrellaWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2698F64E23A13AC600CDEDDF /* Debug */,
+				2698F64F23A13AC600CDEDDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		26A519F2237E86180014478D /* Build configuration list for PBXProject "TakeUnUmbrella" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

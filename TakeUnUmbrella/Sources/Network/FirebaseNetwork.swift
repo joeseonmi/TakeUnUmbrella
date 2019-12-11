@@ -27,4 +27,5 @@ enum FirebaseNetworkError: Error {
 protocol FirebaseNetwork {
     typealias FirebaseResult<T> = Result<T, FirebaseNetworkError>
     func getNotices() -> Observable<QuerySnapshot>
+    func getBGImages() -> Observable<QuerySnapshot>
 }

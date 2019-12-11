@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+struct ThemeModel {
+  
+    let themeNetwork: FirebaseNetwork
+    
+    init(firebaseNetwork: FirebaseNetwork = FirebaseNetworkImpl()) {
+        self.themeNetwork = firebaseNetwork
+    }
+    
+    
+}

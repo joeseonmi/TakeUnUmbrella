@@ -26,6 +26,16 @@ struct SettingViewModel: SettingViewBindable {
                     let nextVM = NoticeViewModel()
                     nextVC.bind(nextVM)
                     return nextVC
+                case 1:
+                    let nextVC = ThemeViewController()
+                    let nextVM = ThemeViewModel()
+                    nextVC.bind(nextVM)
+                    return nextVC
+                case 2:
+                    let nextVC = DownloadBGViewController()
+                    let nextVM = DownloadBGViewModel()
+                    nextVC.bind(nextVM)
+                    return nextVC
                 default:
                     let nextVC = NoticeViewController()
                     let nextVM = NoticeViewModel()

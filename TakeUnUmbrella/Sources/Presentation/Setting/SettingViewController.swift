@@ -26,9 +26,9 @@ class SettingViewController: UIViewController {
     
     //Menu
     let menuItems = ["🎙 알려드립니다",
-                    "🎨 테마",
-                    "📱 배경화면",
-                    "🕵🏻‍♀️ Contact"]
+                     "🎨 테마",
+                     "📱 배경화면",
+                     "🕵🏻‍♀️ Contact"]
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -51,6 +51,7 @@ class SettingViewController: UIViewController {
         menu.bind(to: tableView.rx.items) { tv, row, data in
             let index = IndexPath(row: row, section: 0)
             let cell = UITableViewCell()
+            cell.selectionStyle = .none
             cell.textLabel?.text = data
             return cell
         }

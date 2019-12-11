@@ -14,7 +14,6 @@ import RxSwift
 class FirebaseNetworkImpl: FirebaseNetwork {
 
     let fireStore = Firestore.firestore()
-    let disposeBag = DisposeBag()
     
     func getNotices() -> Observable<QuerySnapshot> {
         return fireStore.collection("Notice")
@@ -22,5 +21,13 @@ class FirebaseNetworkImpl: FirebaseNetwork {
             .rx
             .getDocuments()
     }
+    
+    func getBGImages() -> Observable<QuerySnapshot> {
+        return fireStore.collection("BGImage")
+            .limit(to: 15)
+            .rx
+            .getDocuments()
+    }
+    
 
 }

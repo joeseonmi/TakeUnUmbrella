@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+
+struct ThemeViewModel: ThemeViewBindable {
+    var viewWillAppear = PublishSubject<Void>()
+    
+    
+    var disposeBag = DisposeBag()
+    
+    init(model: ThemeModel = ThemeModel()) {
+        
+    }
+}
