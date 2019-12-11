@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import Firebase
 
 enum FirebaseNetworkError: Error {
     case error(String)
@@ -25,5 +26,5 @@ enum FirebaseNetworkError: Error {
 
 protocol FirebaseNetwork {
     typealias FirebaseResult<T> = Result<T, FirebaseNetworkError>
-    
+    func getNotices() -> Observable<QuerySnapshot>
 }

@@ -28,6 +28,11 @@
 		26420AF4239F868B00BFD788 /* FirebaseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26420AF3239F868B00BFD788 /* FirebaseNetwork.swift */; };
 		26420AF6239F870100BFD788 /* FirebaseNetworkImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26420AF5239F870100BFD788 /* FirebaseNetworkImpl.swift */; };
 		26420AF8239F8B5200BFD788 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26420AF7239F8B5200BFD788 /* GoogleService-Info.plist */; };
+		2698F62123A0070900CDEDDF /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F62023A0070900CDEDDF /* ThemeViewController.swift */; };
+		2698F62323A0071B00CDEDDF /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F62223A0071B00CDEDDF /* ThemeViewModel.swift */; };
+		2698F62523A0072B00CDEDDF /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F62423A0072B00CDEDDF /* ThemeModel.swift */; };
+		2698F62723A0110800CDEDDF /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F62623A0110800CDEDDF /* Notice.swift */; };
+		2698F62A23A0CB6300CDEDDF /* NoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698F62923A0CB6300CDEDDF /* NoticeCell.swift */; };
 		26A519FB237E86180014478D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A519FA237E86180014478D /* AppDelegate.swift */; };
 		26A51A04237E861A0014478D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26A51A03237E861A0014478D /* Assets.xcassets */; };
 		26A51A12237E861A0014478D /* TakeUnUmbrellaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A51A11237E861A0014478D /* TakeUnUmbrellaTests.swift */; };
@@ -87,6 +92,11 @@
 		26420AF3239F868B00BFD788 /* FirebaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNetwork.swift; sourceTree = "<group>"; };
 		26420AF5239F870100BFD788 /* FirebaseNetworkImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNetworkImpl.swift; sourceTree = "<group>"; };
 		26420AF7239F8B5200BFD788 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2698F62023A0070900CDEDDF /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
+		2698F62223A0071B00CDEDDF /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
+		2698F62423A0072B00CDEDDF /* ThemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModel.swift; sourceTree = "<group>"; };
+		2698F62623A0110800CDEDDF /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
+		2698F62923A0CB6300CDEDDF /* NoticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCell.swift; sourceTree = "<group>"; };
 		26A519F7237E86180014478D /* TakeUnUmbrella.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeUnUmbrella.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26A519FA237E86180014478D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		26A51A03237E861A0014478D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -197,8 +207,27 @@
 				26420AED239F7F2200BFD788 /* NoticeViewController.swift */,
 				26420AEF239F7F2E00BFD788 /* NoticeViewModel.swift */,
 				26420AF1239F7F3900BFD788 /* NoticeModel.swift */,
+				2698F62823A0CB4500CDEDDF /* Components */,
 			);
 			path = Notice;
+			sourceTree = "<group>";
+		};
+		2698F61F23A006C700CDEDDF /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				2698F62023A0070900CDEDDF /* ThemeViewController.swift */,
+				2698F62223A0071B00CDEDDF /* ThemeViewModel.swift */,
+				2698F62423A0072B00CDEDDF /* ThemeModel.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		2698F62823A0CB4500CDEDDF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2698F62923A0CB6300CDEDDF /* NoticeCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		26A519EE237E86180014478D = {
@@ -293,6 +322,7 @@
 				261CA9D3237FE73000037D37 /* WeatherSearchComponents.swift */,
 				26A51A44237E96530014478D /* WeatherItem.swift */,
 				26420AD7238E5FFC00BFD788 /* ForecastItem.swift */,
+				2698F62623A0110800CDEDDF /* Notice.swift */,
 				26420AE2239E93A900BFD788 /* MaxMinTemp.swift */,
 				261CA9D823800D4100037D37 /* WeatherGrib.swift */,
 			);
@@ -307,6 +337,7 @@
 				26A51A36237E8BF80014478D /* Today Weather */,
 				26420AE4239EB6DF00BFD788 /* Setting */,
 				26420AEC239F7F0E00BFD788 /* Notice */,
+				2698F61F23A006C700CDEDDF /* Theme */,
 				26A51A37237E8C110014478D /* Other Place Weather */,
 			);
 			path = Presentation;
@@ -603,16 +634,20 @@
 				26420AEA239EB76A00BFD788 /* SettingModel.swift in Sources */,
 				261CA9D4237FE73000037D37 /* WeatherSearchComponents.swift in Sources */,
 				261CA9D2237ED21F00037D37 /* WeatherAPI.swift in Sources */,
+				2698F62523A0072B00CDEDDF /* ThemeModel.swift in Sources */,
 				26A519FB237E86180014478D /* AppDelegate.swift in Sources */,
 				26420ADC238EDE3100BFD788 /* CurrentWeatherView.swift in Sources */,
 				26420AF6239F870100BFD788 /* FirebaseNetworkImpl.swift in Sources */,
 				26A51A31237E86D30014478D /* MainViewController.swift in Sources */,
 				26A51A3D237E8E310014478D /* TodayWeatherModel.swift in Sources */,
 				26420AF2239F7F3900BFD788 /* NoticeModel.swift in Sources */,
+				2698F62123A0070900CDEDDF /* ThemeViewController.swift in Sources */,
 				26420AF4239F868B00BFD788 /* FirebaseNetwork.swift in Sources */,
 				26A51A3F237E8E480014478D /* WeatherNetwork.swift in Sources */,
 				26A51A3B237E8E290014478D /* TodayWeatherViewModel.swift in Sources */,
 				26A51A39237E8E1D0014478D /* TodayWeatherViewController.swift in Sources */,
+				2698F62723A0110800CDEDDF /* Notice.swift in Sources */,
+				2698F62323A0071B00CDEDDF /* ThemeViewModel.swift in Sources */,
 				261CA9D923800D4100037D37 /* WeatherGrib.swift in Sources */,
 				26A51A33237E86ED0014478D /* MainViewModel.swift in Sources */,
 				26420AE3239E93A900BFD788 /* MaxMinTemp.swift in Sources */,
@@ -630,6 +665,7 @@
 				261CA9DB238402F700037D37 /* ForecastView.swift in Sources */,
 				26A51A41237E8E580014478D /* WeatherNetworkImpl.swift in Sources */,
 				26A51A43237E91400014478D /* Constants.swift in Sources */,
+				2698F62A23A0CB6300CDEDDF /* NoticeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

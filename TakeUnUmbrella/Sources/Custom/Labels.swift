@@ -15,6 +15,11 @@ extension UILabel {
         font = UIFont(name: "AppleSDGothicNeo-Regular", size: 24)
         return self
     }
+    var subTitle: UILabel {
+        textColor = AppAttribute.AppColor.darkBlueGray
+        font = UIFont(name: "AppleSDGothicNeo-Regular", size: 17)
+        return self
+    }
     var body: UILabel {
         textColor = AppAttribute.AppColor.darkBlueGray
         font = UIFont(name: "AppleSDGothicNeo-Regular", size: 13)

@@ -7,10 +7,18 @@
 //
 
 import Foundation
+import RxSwift
+import Firebase
 
 struct  NoticeModel {
     //네트워크는 파이어베이스 관련으로
-    init() {
-        
+    let firebaseNetwork: FirebaseNetwork
+    
+    init(firebaseNetwork: FirebaseNetwork = FirebaseNetworkImpl()) {
+        self.firebaseNetwork = firebaseNetwork
+    }
+    
+    func getNotice() -> Observable<QuerySnapshot> {
+        return firebaseNetwork.getNotices()
     }
 }

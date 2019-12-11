@@ -7,8 +7,20 @@
 //
 
 import Foundation
+import Firebase
+import RxFirebase
 import RxSwift
 
 class FirebaseNetworkImpl: FirebaseNetwork {
+
+    let fireStore = Firestore.firestore()
+    let disposeBag = DisposeBag()
     
+    func getNotices() -> Observable<QuerySnapshot> {
+        return fireStore.collection("Notice")
+            .limit(to: 15)
+            .rx
+            .getDocuments()
+    }
+
 }
